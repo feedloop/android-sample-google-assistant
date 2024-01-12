@@ -1,4 +1,4 @@
-package ai.co.bri.brimo
+package id.co.bri.brimo
 
 import android.net.Uri
 import android.os.Build
@@ -22,7 +22,7 @@ class MySliceProvider : SliceProvider() {
         /**
          * The Slice authority as defined in the AndroidManifest
          */
-        const val SLICE_AUTHORITY = "ai.co.bri.brimo.google_assistant"
+        const val SLICE_AUTHORITY = "id.co.bri.brimo.google_assistant"
     }
 
     /**

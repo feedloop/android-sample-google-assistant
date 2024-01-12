@@ -15,7 +15,7 @@
  *
  */
 
-package ai.co.bri.brimo.home
+package id.co.bri.brimo.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -23,8 +23,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import ai.co.bri.brimo.R
-import ai.co.bri.brimo.model.FitRepository
+import id.co.bri.brimo.R
+import id.co.bri.brimo.model.FitRepository
 import kotlinx.android.synthetic.main.fit_stats_fragment.*
 import java.util.concurrent.TimeUnit
 

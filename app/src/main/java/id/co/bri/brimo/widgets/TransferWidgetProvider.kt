@@ -15,18 +15,18 @@
  *
  */
 
-package ai.co.bri.brimo.widgets
+package id.co.bri.brimo.widgets
 
 import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
 import android.content.Context
-import ai.co.bri.brimo.R
+import id.co.bri.brimo.R
 
 
 /**
  * Implementation of App Widget functionality.
  */
-class StatsWidgetProvider : AppWidgetProvider() {
+class TransferWidgetProvider : AppWidgetProvider() {
     override fun onUpdate(
         context: Context,
         appWidgetManager: AppWidgetManager,
@@ -34,10 +34,10 @@ class StatsWidgetProvider : AppWidgetProvider() {
     ) {
         for (appWidgetId in appWidgetIds) {
 
-            val currentWidget = StatsWidget(context,
+            val currentWidget = TransferWidget(context,
                 appWidgetManager,
                 appWidgetId,
-                R.layout.stats_widget)
+                R.layout.transfer_widget)
 
             currentWidget.updateAppWidget()
 

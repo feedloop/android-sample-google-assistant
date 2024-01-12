@@ -15,7 +15,7 @@
  *
  */
 
-package ai.co.bri.brimo
+package id.co.bri.brimo
 
 /**
  * Static object that defines the different BIIs
@@ -32,7 +32,7 @@ object BiiIntents {
     }
 
     object Data{
-        const val SALDO="1,230,000"
+        const val SALDO="1.500.000"
     }
 
     /**

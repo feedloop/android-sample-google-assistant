@@ -18,10 +18,10 @@
 <resources>
 
     <array name="saldoSynonyms">
-        <item>Cek Saldo</item>
+        <item>Balance check</item>
+        <item>Balance</item>
         <item>Saldo</item>
-        <item>Dana</item>
-        <item>Uang</item>
+        <item>Money</item>
         <item>Tabungan</item>
     </array>
 

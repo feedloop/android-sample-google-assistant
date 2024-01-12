@@ -1,6 +1,6 @@
-package ai.co.bri.brimo
+package id.co.bri.brimo
 
-import ai.co.bri.brimo.BiiIntents.Data.SALDO
+import id.co.bri.brimo.BiiIntents.Data.SALDO
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
@@ -46,7 +46,7 @@ abstract class MySlice(val context: Context, val sliceUri: Uri) {
     protected fun createActivityAction(action: String): SliceAction {
         val intent = Intent(context, FitMainActivity::class.java)
         intent.action = Intent.ACTION_VIEW
-        intent.data = Uri.parse("app://ai.co.bri.brimo.google_assistant/open?feature=$action")
+        intent.data = Uri.parse("app://id.co.bri.brimo.google_assistant/open?feature=$action")
         return SliceAction.create(
             PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_IMMUTABLE),
             IconCompat.createWithResource(context, R.mipmap.ic_launcher),

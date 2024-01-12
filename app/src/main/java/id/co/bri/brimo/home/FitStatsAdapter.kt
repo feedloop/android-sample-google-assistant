@@ -15,7 +15,7 @@
  *
  */
 
-package ai.co.bri.brimo.home
+package id.co.bri.brimo.home
 
 import android.view.LayoutInflater
 import android.view.View
@@ -23,8 +23,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import ai.co.bri.brimo.model.FitActivity
-import ai.co.bri.brimo.R
+import id.co.bri.brimo.model.FitActivity
+import id.co.bri.brimo.R
 import kotlinx.android.synthetic.main.fit_stats_row.view.*
 import java.text.SimpleDateFormat
 import java.util.*

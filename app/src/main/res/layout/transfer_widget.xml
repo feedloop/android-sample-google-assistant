@@ -1,0 +1,400 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Widget.Fitnessactions.AppWidget.Container"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:theme="@style/AppTheme.AppWidgetContainer">
+
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_margin="16dp"
+        android:src="@mipmap/ic_launcher"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/titleApp"
+        style="@style/Widget.Fitnessactions.AppWidget.Container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="8dp"
+        android:layout_toRightOf="@id/imgLogo"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="@string/app_name"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imgLogo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imgLogo"
+        app:layout_constraintTop_toTopOf="@+id/imgLogo" />
+
+    <TextView
+        android:id="@+id/appwidgetTypeTitle"
+        style="@style/Widget.Fitnessactions.AppWidget.Container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="Saldo anda"
+        android:layout_margin="16dp"
+        android:text="Berikut ringkasan transfer Anda. Apakah Anda setuju?"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgLogo" />
+
+    <LinearLayout
+        android:id="@+id/lnAmount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/round_grey_line"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:padding="16dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appwidgetTypeTitle">
+
+        <TextView
+            style="@style/Widget.Fitnessactions.AppWidget.Container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/appwidgetTypeTitle"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/widget_distance"
+            android:gravity="center"
+            android:text="Amount"
+            android:textSize="15sp" />
+        <TextView
+            android:id="@+id/txtAmount"
+            style="@style/Widget.Fitnessactions.AppWidget.Container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/appwidgetTypeTitle"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/widget_distance"
+            android:gravity="center"
+            android:text="@string/widget_preview_distance"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lnBelance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lnAmount">
+
+        <TextView
+            style="@style/Widget.Fitnessactions.AppWidget.Container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/appwidgetTypeTitle"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/widget_distance"
+            android:gravity="center"
+            android:text="Curent Balance"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/txtBalance"
+            style="@style/Widget.Fitnessactions.AppWidget.Container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/appwidgetTypeTitle"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/widget_distance"
+            android:gravity="right"
+            android:text="@string/widget_preview_distance"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/line1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lnBelance"
+        android:layout_marginVertical="16dp"
+        android:background="#E2E3E4"/>
+
+    <TextView
+        android:id="@+id/deskFrom"
+        style="@style/Widget.Fitnessactions.AppWidget.Container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/appwidgetTypeTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="@string/widget_distance"
+        android:gravity="center"
+        android:text="Transfer dari"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line1" />
+
+    <LinearLayout
+        android:id="@+id/lnFrom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/deskFrom">
+
+        <TextView
+            android:id="@+id/txtFromName"
+            style="@style/Widget.Fitnessactions.AppWidget.Container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/appwidgetTypeTitle"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/widget_distance"
+            android:gravity="center"
+            android:text="Ayu Devi"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtFromRek"
+            style="@style/Widget.Fitnessactions.AppWidget.Container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/appwidgetTypeTitle"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/widget_distance"
+            android:gravity="right"
+            android:text="1234567"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/deskTo"
+        style="@style/Widget.Fitnessactions.AppWidget.Container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/appwidgetTypeTitle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="@string/widget_distance"
+        android:gravity="center"
+        android:text="Ke Rekening"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lnFrom" />
+
+    <LinearLayout
+        android:id="@+id/lnTo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/deskTo">
+
+        <TextView
+            android:id="@+id/txtToName"
+            style="@style/Widget.Fitnessactions.AppWidget.Container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/appwidgetTypeTitle"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/widget_distance"
+            android:gravity="center"
+            android:text="Gusti Ngurah"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtToRek"
+            style="@style/Widget.Fitnessactions.AppWidget.Container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/appwidgetTypeTitle"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/widget_distance"
+            android:gravity="right"
+            android:text="9876452"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/line2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lnTo"
+        android:layout_marginVertical="16dp"
+        android:background="#E2E3E4"/>
+
+    <LinearLayout
+        android:id="@+id/lnTransferAmount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line2">
+
+        <TextView
+            style="@style/Widget.Fitnessactions.AppWidget.Container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/appwidgetTypeTitle"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/widget_distance"
+            android:gravity="center"
+            android:text="Transfer Amount"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/txtTransferAmount"
+            style="@style/Widget.Fitnessactions.AppWidget.Container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/appwidgetTypeTitle"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/widget_distance"
+            android:gravity="right"
+            android:text="122222"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lnAmountFee"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lnTransferAmount">
+
+        <TextView
+            style="@style/Widget.Fitnessactions.AppWidget.Container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/appwidgetTypeTitle"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/widget_distance"
+            android:gravity="center"
+            android:text="Amount Fee"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/txtFee"
+            style="@style/Widget.Fitnessactions.AppWidget.Container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/appwidgetTypeTitle"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/widget_distance"
+            android:gravity="right"
+            android:text="123"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lnTotal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lnAmountFee">
+
+        <TextView
+            style="@style/Widget.Fitnessactions.AppWidget.Container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/appwidgetTypeTitle"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/widget_distance"
+            android:gravity="center"
+            android:text="Total"
+            android:textStyle="bold"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/txtTotal"
+            style="@style/Widget.Fitnessactions.AppWidget.Container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/appwidgetTypeTitle"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/widget_distance"
+            android:gravity="right"
+            android:text="1231222"
+            android:textStyle="bold"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/lnButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lnTotal">
+
+        <Button
+            android:id="@+id/btnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="56dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_blue"
+            android:text="Cancel"
+            android:layout_marginRight="8dp"
+            android:textAllCaps="false"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/btnConf"
+            android:layout_width="wrap_content"
+            android:layout_height="56dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/button_blue"
+            android:text="Confirm"
+            android:textAllCaps="false"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

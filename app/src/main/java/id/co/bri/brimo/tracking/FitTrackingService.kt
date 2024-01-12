@@ -15,7 +15,7 @@
  *
  */
 
-package ai.co.bri.brimo.tracking
+package id.co.bri.brimo.tracking
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -28,10 +28,10 @@ import android.os.IBinder
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
 import androidx.lifecycle.Observer
-import ai.co.bri.brimo.FitMainActivity
-import ai.co.bri.brimo.R
-import ai.co.bri.brimo.model.FitActivity
-import ai.co.bri.brimo.model.FitRepository
+import id.co.bri.brimo.FitMainActivity
+import id.co.bri.brimo.R
+import id.co.bri.brimo.model.FitActivity
+import id.co.bri.brimo.model.FitRepository
 
 /**
  * Foreground Android Service that starts an activity and keep tracks of the status showing

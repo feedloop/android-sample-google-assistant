@@ -15,17 +15,17 @@
  *
  */
 
-package ai.co.bri.brimo.widgets
+package id.co.bri.brimo.widgets
 
-import ai.co.bri.brimo.BiiIntents
+import id.co.bri.brimo.BiiIntents
 import android.appwidget.AppWidgetManager
 import android.content.Context
 import android.text.format.DateFormat
 import android.widget.RemoteViews
-import ai.co.bri.brimo.R
-import ai.co.bri.brimo.model.FitActivity
-import ai.co.bri.brimo.model.FitRepository
-import ai.co.bri.brimo.observeOnce
+import id.co.bri.brimo.R
+import id.co.bri.brimo.model.FitActivity
+import id.co.bri.brimo.model.FitRepository
+import id.co.bri.brimo.observeOnce
 import com.google.assistant.appactions.widgets.AppActionsWidgetExtension
 import java.util.*
 import java.util.concurrent.TimeUnit
@@ -35,7 +35,7 @@ import java.util.concurrent.TimeUnit
  * Class that defines a Stats Widget which provides data on the last activity performed
  * or with a BII it provides the last activity performed of requested activity type
  */
-class StatsWidget(
+class TransferWidget(
     private val context: Context,
     private val appWidgetManager: AppWidgetManager,
     private val appWidgetId: Int,
@@ -45,8 +45,13 @@ class StatsWidget(
     private val repository = FitRepository.getInstance(context)
     private val hasBii: Boolean
     private val isFallbackIntent: Boolean
-    private val aboutExerciseName: String
-    private val exerciseType: FitActivity.Type
+    private val transferMode: String
+    private val value: String
+    private val currency: String
+    private val moneyTransferOriginName: String
+    private val moneyTransferDestinationName: String
+    private val moneyTransferOriginProvidername: String
+    private val moneyTransferDestinationProvidername: String
 
     init {
         val optionsBundle = appWidgetManager.getAppWidgetOptions(appWidgetId)
@@ -56,15 +61,38 @@ class StatsWidget(
         if (params != null) {
             isFallbackIntent = params.isEmpty
             if (isFallbackIntent) {
-                aboutExerciseName = context.resources.getString(R.string.activity_unknown)
+                transferMode = context.resources.getString(R.string.activity_unknown)
+                value = context.resources.getString(R.string.activity_unknown)
+                currency = context.resources.getString(R.string.activity_unknown)
+                moneyTransferOriginName = context.resources.getString(R.string.activity_unknown)
+                moneyTransferDestinationName =
+                    context.resources.getString(R.string.activity_unknown)
+                moneyTransferOriginProvidername =
+                    context.resources.getString(R.string.activity_unknown)
+                moneyTransferDestinationProvidername =
+                    context.resources.getString(R.string.activity_unknown)
             } else {
-                aboutExerciseName = params.get("aboutExerciseName") as String
+                transferMode = params.get("transferMode") as String
+                value = params.get("value") as String
+                currency = params.get("currency") as String
+                moneyTransferOriginName = params.get("moneyTransferOriginName") as String
+                moneyTransferDestinationName = params.get("moneyTransferDestinationName") as String
+                moneyTransferOriginProvidername =
+                    params.get("moneyTransferOriginProvidername") as String
+                moneyTransferDestinationProvidername =
+                    params.get("moneyTransferDestinationProvidername") as String
             }
         } else {
             isFallbackIntent = false
-            aboutExerciseName = context.resources.getString(R.string.activity_unknown)
+            transferMode = context.resources.getString(R.string.activity_unknown)
+            value = context.resources.getString(R.string.activity_unknown)
+            currency = context.resources.getString(R.string.activity_unknown)
+            moneyTransferOriginName = context.resources.getString(R.string.activity_unknown)
+            moneyTransferDestinationName = context.resources.getString(R.string.activity_unknown)
+            moneyTransferOriginProvidername = context.resources.getString(R.string.activity_unknown)
+            moneyTransferDestinationProvidername =
+                context.resources.getString(R.string.activity_unknown)
         }
-        exerciseType = FitActivity.Type.find(aboutExerciseName)
     }
 
     /**
@@ -78,16 +106,29 @@ class StatsWidget(
     }
 
 
-
     /**
      * Sets title, duration and distance data to widget
      */
     private fun setDataToWidget(
-        saldo: String,
+        transferMode: String,
+        value: String,
+        currency: String,
+        moneyTransferOriginName: String,
+        moneyTransferDestinationName: String,
+        moneyTransferOriginProvidername: String,
+        moneyTransferDestinationProvidername: String,
     ) {
         views.setTextViewText(
-            R.id.appwidgetDistance,
-            context.getString(R.string.widget_distance, saldo)
+            R.id.txtAmount,
+            value
+        )
+        views.setTextViewText(
+            R.id.txtFromName,
+            moneyTransferOriginName
+        )
+        views.setTextViewText(
+            R.id.txtToName,
+            moneyTransferDestinationName
         )
     }
 
@@ -112,27 +153,23 @@ class StatsWidget(
      * Formats and sets activity data to Widget
      */
     private fun formatDataAndSetWidget(
-        activityStat: FitActivity,
     ) {
-        // formats date of activity
-        val datePattern = DateFormat.getBestDateTimePattern(Locale.getDefault(), "MMMM d")
-        val formattedDate = DateFormat.format(datePattern, activityStat.date)
-
-
-        // formats duration, distance and exercise name for widget
-        val durationInMin = TimeUnit.MILLISECONDS.toMinutes(activityStat.durationMs)
-        val distanceInKm = (activityStat.distanceMeters / 1000).toFloat()
-        val activityExerciseType = activityStat.type.toString()
-        val activityExerciseTypeFormatted = activityExerciseType.lowercase()
-
-
-        setDataToWidget(BiiIntents.Data.SALDO)
+        setDataToWidget(
+            transferMode,
+            value,
+            currency,
+            moneyTransferOriginName,
+            moneyTransferDestinationName,
+            moneyTransferOriginProvidername,
+            moneyTransferDestinationProvidername
+        )
 
         if (hasBii) {
             // formats speech and display text for Assistant
             // https://developers.google.com/assistant/app/widgets#tts
-            val speechText = "Berikut informasi saldo anda pada tanggal $formattedDate. adalah sebesar ${BiiIntents.Data.SALDO} Rupiah."
-            val displayText = "Berikut informasi saldo anda pada tanggal $formattedDate"
+            val speechText =
+                "Anda akan melakukan transfer dana sebesar $value rupiah kepada $moneyTransferDestinationName"
+            val displayText = "Anda akan melakukan transfer dana"
             setTts(speechText, displayText)
         }
     }
@@ -145,16 +182,23 @@ class StatsWidget(
         val distanceInKm = 0F
         val durationInMin = 0L
 
-        setDataToWidget(BiiIntents.Data.SALDO)
+        setDataToWidget(
+            transferMode,
+            value,
+            currency,
+            moneyTransferOriginName,
+            moneyTransferDestinationName,
+            moneyTransferOriginProvidername,
+            moneyTransferDestinationProvidername
+        )
+
 
         if (hasBii) {
             // formats speech and display text for Assistant
             // https://developers.google.com/assistant/app/widgets#library
             val speechText =
-                context.getString(R.string.widget_no_activity_speech, aboutExerciseName)
-            val displayText =
-                context.getString(R.string.widget_no_activity_text)
-
+                "Anda akan melakukan transfer dana sebesar $value rupiah kepada $moneyTransferDestinationName"
+            val displayText = "Anda akan melakukan transfer dana"
             setTts(speechText, displayText)
         }
     }
@@ -170,17 +214,8 @@ class StatsWidget(
      * Create and observe the last exerciseType activity LiveData.
      */
     private fun observeAndUpdateRequestedExercise() {
-        val activityData = repository.getLastActivities(1, exerciseType)
-
-        activityData.observeOnce { activitiesStat ->
-            if (activitiesStat.isNotEmpty()) {
-                formatDataAndSetWidget(activitiesStat[0])
-                updateWidget()
-            } else {
-                setNoActivityDataWidget()
-                updateWidget()
-            }
-        }
+        formatDataAndSetWidget()
+        updateWidget()
     }
 
 
@@ -188,17 +223,8 @@ class StatsWidget(
      * Create and observe the last activity LiveData.
      */
     private fun observeAndUpdateLastExercise() {
-        val activityData = repository.getLastActivities(1)
-
-        activityData.observeOnce { activitiesStat ->
-            if (activitiesStat.isNotEmpty()) {
-                formatDataAndSetWidget(activitiesStat[0])
+                formatDataAndSetWidget()
                 updateWidget()
-            } else {
-                setNoActivityDataWidget()
-                updateWidget()
-            }
-        }
     }
 
 }

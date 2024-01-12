@@ -1,4 +1,4 @@
-package ai.co.bri.brimo
+package id.co.bri.brimo
 
 object AssistantConfig {
     const val API_KEY = "AIzaSyDz7IFrf1S7cC6ZxYZUme_hymNJ4U7Cw6E"

@@ -1,4 +1,4 @@
-package ai.co.bri.brimo
+package id.co.bri.brimo
 
 import android.app.Application
 import android.content.ContentResolver

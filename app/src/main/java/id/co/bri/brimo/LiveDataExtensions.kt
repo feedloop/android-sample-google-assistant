@@ -15,7 +15,7 @@
  *
  */
 
-package ai.co.bri.brimo
+package id.co.bri.brimo
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer

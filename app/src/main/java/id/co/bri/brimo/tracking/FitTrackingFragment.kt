@@ -15,7 +15,7 @@
  *
  */
 
-package ai.co.bri.brimo.tracking
+package id.co.bri.brimo.tracking
 
 import android.content.Intent
 import android.os.Build
@@ -26,9 +26,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import ai.co.bri.brimo.R
-import ai.co.bri.brimo.model.FitActivity
-import ai.co.bri.brimo.model.FitRepository
+import id.co.bri.brimo.R
+import id.co.bri.brimo.model.FitActivity
+import id.co.bri.brimo.model.FitRepository
 import kotlinx.android.synthetic.main.fit_tracking_fragment.*
 import java.util.concurrent.TimeUnit
 

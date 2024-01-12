@@ -15,7 +15,7 @@
  *
  */
 
-package ai.co.bri.brimo.model
+package id.co.bri.brimo.model
 
 import android.content.Context
 import android.os.Handler

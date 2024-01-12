@@ -15,7 +15,7 @@
  *
  */
 
-package ai.co.bri.brimo.model
+package id.co.bri.brimo.model
 
 /**
  * Entity that contains the total user stats.

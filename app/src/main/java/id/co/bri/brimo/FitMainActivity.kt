@@ -15,9 +15,9 @@
  *
  */
 
-package ai.co.bri.brimo
+package id.co.bri.brimo
 
-import ai.co.bri.brimo.BiiIntents.OPEN
+import id.co.bri.brimo.BiiIntents.OPEN
 import android.app.assist.AssistContent
 import android.content.Intent
 import android.net.Uri
@@ -26,14 +26,13 @@ import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import ai.co.bri.brimo.BiiIntents.START_EXERCISE
-import ai.co.bri.brimo.BiiIntents.STOP_EXERCISE
-import ai.co.bri.brimo.home.FitStatsFragment
-import ai.co.bri.brimo.model.FitActivity
-import ai.co.bri.brimo.model.FitRepository
-import ai.co.bri.brimo.tracking.FitTrackingFragment
-import ai.co.bri.brimo.tracking.FitTrackingService
-import ai.co.bri.brimo.R
+import id.co.bri.brimo.BiiIntents.START_EXERCISE
+import id.co.bri.brimo.BiiIntents.STOP_EXERCISE
+import id.co.bri.brimo.home.FitStatsFragment
+import id.co.bri.brimo.model.FitActivity
+import id.co.bri.brimo.model.FitRepository
+import id.co.bri.brimo.tracking.FitTrackingFragment
+import id.co.bri.brimo.tracking.FitTrackingService
 import org.json.JSONObject
 
 /**

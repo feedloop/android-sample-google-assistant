@@ -26,7 +26,7 @@ apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 34
     
-    namespace "ai.co.bri.brimo"
+    namespace "id.co.bri.brimo"
     // Configure only for each module that uses Java 8
     // language features (either in its source code or
     // through dependencies).
@@ -41,7 +41,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "ai.co.bri.brimo"
+        applicationId "id.co.bri.brimo"
         minSdkVersion 25
         targetSdkVersion 34
         versionCode 2

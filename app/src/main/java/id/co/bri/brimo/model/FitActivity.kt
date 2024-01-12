@@ -15,13 +15,13 @@
  *
  */
 
-package ai.co.bri.brimo.model
+package id.co.bri.brimo.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.Index
 import androidx.room.PrimaryKey
-import ai.co.bri.brimo.R
+import id.co.bri.brimo.R
 
 /**
  * Entity that describes an activity performed by the user.
