@@ -5,6 +5,8 @@
     android:initialLayout="@layout/transfer_widget"
     android:minWidth="180dp"
     android:minHeight="110dp"
+    android:maxResizeWidth="530dp"
+    android:maxResizeHeight="450dp"
     android:previewImage="@drawable/ic_run"
     android:previewLayout="@layout/transfer_widget"
     android:resizeMode="vertical"

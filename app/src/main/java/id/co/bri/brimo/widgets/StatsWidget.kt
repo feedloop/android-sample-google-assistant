@@ -21,6 +21,7 @@ import id.co.bri.brimo.BiiIntents
 import android.appwidget.AppWidgetManager
 import android.content.Context
 import android.text.format.DateFormat
+import android.util.Log
 import android.widget.RemoteViews
 import id.co.bri.brimo.R
 import id.co.bri.brimo.model.FitActivity
@@ -58,15 +59,16 @@ class StatsWidget(
             if (isFallbackIntent) {
                 aboutExerciseName = context.resources.getString(R.string.activity_unknown)
             } else {
-                aboutExerciseName = params.get("aboutExerciseName") as String
+                aboutExerciseName = params.get("forServiceName") as String
             }
         } else {
             isFallbackIntent = false
             aboutExerciseName = context.resources.getString(R.string.activity_unknown)
         }
         exerciseType = FitActivity.Type.find(aboutExerciseName)
-    }
 
+        Log.e("Brimo data aboutExerciseName", aboutExerciseName)
+    }
     /**
      * Checks if widget should get requested or last exercise data and updates widget
      * accordingly

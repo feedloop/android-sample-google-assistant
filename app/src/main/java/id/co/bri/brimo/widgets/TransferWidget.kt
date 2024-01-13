@@ -21,6 +21,7 @@ import id.co.bri.brimo.BiiIntents
 import android.appwidget.AppWidgetManager
 import android.content.Context
 import android.text.format.DateFormat
+import android.util.Log
 import android.widget.RemoteViews
 import id.co.bri.brimo.R
 import id.co.bri.brimo.model.FitActivity
@@ -93,6 +94,14 @@ class TransferWidget(
             moneyTransferDestinationProvidername =
                 context.resources.getString(R.string.activity_unknown)
         }
+
+        Log.e("Brimo data transferMode",transferMode)
+        Log.e("Brimo data value",value)
+        Log.e("Brimo data currency",currency)
+        Log.e("Brimo data moneyTransferOriginName",moneyTransferOriginName)
+        Log.e("Brimo data moneyTransferDestinationName",moneyTransferDestinationName)
+        Log.e("Brimo data moneyTransferOriginProvidername",moneyTransferOriginProvidername)
+        Log.e("Brimo data moneyTransferDestinationProvidername",moneyTransferDestinationProvidername)
     }
 
     /**
