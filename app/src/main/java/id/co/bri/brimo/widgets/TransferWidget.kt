@@ -44,8 +44,8 @@ class TransferWidget(
 ) {
     private val views = RemoteViews(context.packageName, layout)
     private val repository = FitRepository.getInstance(context)
-    private val hasBii: Boolean
-    private val isFallbackIntent: Boolean
+//    private val hasBii: Boolean
+//    private val isFallbackIntent: Boolean
     private val transferMode: String
     private val value: String
     private val currency: String
@@ -57,34 +57,35 @@ class TransferWidget(
     init {
         val optionsBundle = appWidgetManager.getAppWidgetOptions(appWidgetId)
         val bii = optionsBundle.getString(AppActionsWidgetExtension.EXTRA_APP_ACTIONS_BII)
-        hasBii = !bii.isNullOrBlank()
+//        hasBii = !bii.isNullOrBlank()
         val params = optionsBundle.getBundle(AppActionsWidgetExtension.EXTRA_APP_ACTIONS_PARAMS)
         if (params != null) {
-            isFallbackIntent = params.isEmpty
-            if (isFallbackIntent) {
-                transferMode = context.resources.getString(R.string.activity_unknown)
-                value = context.resources.getString(R.string.activity_unknown)
-                currency = context.resources.getString(R.string.activity_unknown)
-                moneyTransferOriginName = context.resources.getString(R.string.activity_unknown)
+//            isFallbackIntent = params.isEmpty
+//            if (isFallbackIntent) {
+//                transferMode = context.resources.getString(R.string.activity_unknown)
+//                value = context.resources.getString(R.string.activity_unknown)
+//                currency = context.resources.getString(R.string.activity_unknown)
+//                moneyTransferOriginName = context.resources.getString(R.string.activity_unknown)
+//                moneyTransferDestinationName =
+//                    context.resources.getString(R.string.activity_unknown)
+//                moneyTransferOriginProvidername =
+//                    context.resources.getString(R.string.activity_unknown)
+//                moneyTransferDestinationProvidername =
+//                    context.resources.getString(R.string.activity_unknown)
+//            } else {
+                transferMode = params.getString("transferMode").toString()
+                value = params.getString("value").toString()
+                currency = params.getString("currency").toString()
+                moneyTransferOriginName = params.getString("moneyTransferOriginName").toString()
                 moneyTransferDestinationName =
-                    context.resources.getString(R.string.activity_unknown)
+                    params.getString("moneyTransferDestinationName").toString()
                 moneyTransferOriginProvidername =
-                    context.resources.getString(R.string.activity_unknown)
+                    params.getString("moneyTransferOriginProvidername").toString()
                 moneyTransferDestinationProvidername =
-                    context.resources.getString(R.string.activity_unknown)
-            } else {
-                transferMode = params.get("transferMode") as String
-                value = params.get("value") as String
-                currency = params.get("currency") as String
-                moneyTransferOriginName = params.get("moneyTransferOriginName") as String
-                moneyTransferDestinationName = params.get("moneyTransferDestinationName") as String
-                moneyTransferOriginProvidername =
-                    params.get("moneyTransferOriginProvidername") as String
-                moneyTransferDestinationProvidername =
-                    params.get("moneyTransferDestinationProvidername") as String
-            }
+                    params.getString("moneyTransferDestinationProvidername").toString()
+//            }
         } else {
-            isFallbackIntent = false
+//            isFallbackIntent = false
             transferMode = context.resources.getString(R.string.activity_unknown)
             value = context.resources.getString(R.string.activity_unknown)
             currency = context.resources.getString(R.string.activity_unknown)
@@ -95,13 +96,19 @@ class TransferWidget(
                 context.resources.getString(R.string.activity_unknown)
         }
 
-        Log.e("Brimo data transferMode",transferMode)
-        Log.e("Brimo data value",value)
-        Log.e("Brimo data currency",currency)
-        Log.e("Brimo data moneyTransferOriginName",moneyTransferOriginName)
-        Log.e("Brimo data moneyTransferDestinationName",moneyTransferDestinationName)
-        Log.e("Brimo data moneyTransferOriginProvidername",moneyTransferOriginProvidername)
-        Log.e("Brimo data moneyTransferDestinationProvidername",moneyTransferDestinationProvidername)
+        Log.e("Brimo data optionsBundle", optionsBundle.toString())
+        Log.e("Brimo data bii", bii.toString())
+        Log.e("Brimo data params", params.toString())
+        Log.e("Brimo data transferMode", transferMode)
+        Log.e("Brimo data value", value)
+        Log.e("Brimo data currency", currency)
+        Log.e("Brimo data moneyTransferOriginName", moneyTransferOriginName)
+        Log.e("Brimo data moneyTransferDestinationName", moneyTransferDestinationName)
+        Log.e("Brimo data moneyTransferOriginProvidername", moneyTransferOriginProvidername)
+        Log.e(
+            "Brimo data moneyTransferDestinationProvidername",
+            moneyTransferDestinationProvidername
+        )
     }
 
     /**
@@ -109,9 +116,9 @@ class TransferWidget(
      * accordingly
      */
     fun updateAppWidget() {
-        if (hasBii && !isFallbackIntent) {
+//        if (hasBii ) {
             observeAndUpdateRequestedExercise()
-        } else observeAndUpdateLastExercise()
+//        } else observeAndUpdateLastExercise()
     }
 
 
@@ -173,14 +180,14 @@ class TransferWidget(
             moneyTransferDestinationProvidername
         )
 
-        if (hasBii) {
+//        if (hasBii) {
             // formats speech and display text for Assistant
             // https://developers.google.com/assistant/app/widgets#tts
             val speechText =
                 "Anda akan melakukan transfer dana sebesar $value rupiah kepada $moneyTransferDestinationName"
             val displayText = "Anda akan melakukan transfer dana"
             setTts(speechText, displayText)
-        }
+//        }
     }
 
     /**
@@ -202,14 +209,14 @@ class TransferWidget(
         )
 
 
-        if (hasBii) {
+//        if (hasBii) {
             // formats speech and display text for Assistant
             // https://developers.google.com/assistant/app/widgets#library
             val speechText =
                 "Anda akan melakukan transfer dana sebesar $value rupiah kepada $moneyTransferDestinationName"
             val displayText = "Anda akan melakukan transfer dana"
             setTts(speechText, displayText)
-        }
+//        }
     }
 
     /**
@@ -232,8 +239,8 @@ class TransferWidget(
      * Create and observe the last activity LiveData.
      */
     private fun observeAndUpdateLastExercise() {
-                formatDataAndSetWidget()
-                updateWidget()
+        formatDataAndSetWidget()
+        updateWidget()
     }
 
 }

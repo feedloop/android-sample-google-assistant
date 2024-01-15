@@ -195,7 +195,7 @@
     -->
     <capability android:name="actions.intent.GET_INVOICE">
         <app-widget
-            android:identifier="GET_INVOICE"
+            android:identifier="GET_INVOICE_1"
             android:targetClass="id.co.bri.brimo.widgets.StatsWidgetProvider"
             android:targetPackage="id.co.bri.brimo">
             <!-- Eg. forServiceName = "Utility" -->
@@ -213,7 +213,7 @@
         <!-- Fallback intent with no parameters required to successfully execute.-->
         <intent
             android:action="android.intent.action.VIEW"
-            android:identifier="GET_INVOICE_FALLBACK"
+            android:identifier="GET_INVOICE_FALLBACK_1"
             android:targetClass="id.co.bri.brimo.widgets.StatsWidgetProvider"></intent>
     </capability>
 
@@ -228,7 +228,8 @@
         android:shortcutId="CREATE_MONEY_TRANSFER"
         android:shortcutShortLabel="@string/activity_transfer"
         android:shortcutLongLabel="@string/activity_transfer">
-        <capability-binding android:key="actions.intent.CREATE_MONEY_TRANSFER">
+        <capability-binding android:key="actions.intent.CREATE_MONEY_TRANSFER"
+            android:value="transfer;money">
             <parameter-binding
                 android:value="moneyTransferOriginName"
                 android:key="moneyTransfer.moneyTransferOrigin.name"/>
@@ -242,7 +243,7 @@
     -->
     <capability android:name="actions.intent.CREATE_MONEY_TRANSFER">
         <app-widget
-            android:identifier="CREATE_MONEY_TRANSFER"
+            android:identifier="GET_INVOICE_FALLBACK"
             android:targetClass="id.co.bri.brimo.widgets.TransferWidgetProvider"
             android:targetPackage="id.co.bri.brimo">
             <parameter

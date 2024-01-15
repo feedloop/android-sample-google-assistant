@@ -20,6 +20,8 @@ package id.co.bri.brimo.widgets
 import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
 import android.content.Context
+import android.util.Log
+import com.google.assistant.appactions.widgets.AppActionsWidgetExtension
 import id.co.bri.brimo.R
 
 
@@ -40,7 +42,23 @@ class TransferWidgetProvider : AppWidgetProvider() {
                 R.layout.transfer_widget)
 
             currentWidget.updateAppWidget()
+            var dropoffLocation="Unknown"
+            // Extract the name and parameters of the BII from the widget options
+            val optionsBundle = appWidgetManager.getAppWidgetOptions(appWidgetId)
+            val bii = optionsBundle.getString(AppActionsWidgetExtension.EXTRA_APP_ACTIONS_BII) // "actions.intent.CREATE_TAXI_RESERVATION"
+            val params = optionsBundle.getBundle(AppActionsWidgetExtension.EXTRA_APP_ACTIONS_PARAMS)
+            if (params != null && params.containsKey("value")) {
+                 dropoffLocation = params.getString("value").toString()
 
+                Log.e("Brimo data dropoffLocation", dropoffLocation.toString())
+                // Build your RemoteViews with the extracted BII parameter
+                // ...
+            }
+
+            Log.e("Brimo data optionsBundle", optionsBundle.toString())
+            Log.e("Brimo data bii", bii.toString())
+            Log.e("Brimo data params", params.toString())
+            Log.e("Brimo data dropoffLocation", dropoffLocation.toString())
         }
     }
 }
