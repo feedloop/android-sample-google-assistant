@@ -6,6 +6,7 @@
     android:theme="@style/AppTheme.AppWidgetContainer"
     android:background="?android:attr/colorBackground">
 
+
     <TextView
         android:id="@+id/appwidgetTypeTitle"
         style="@style/Widget.Fitnessactions.AppWidget.Container"
