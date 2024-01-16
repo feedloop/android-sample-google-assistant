@@ -88,8 +88,7 @@ class StatsWidget(
         saldo: String,
     ) {
         views.setTextViewText(
-            R.id.appwidgetDistance,
-            context.getString(R.string.widget_distance, saldo)
+            R.id.appwidgetDistance,"Rp 1.500.000"
         )
     }
 
@@ -146,19 +145,24 @@ class StatsWidget(
         val appwidgetTypeTitleText = context.getString((R.string.widget_no_data))
         val distanceInKm = 0F
         val durationInMin = 0L
+        val datePattern = DateFormat.getBestDateTimePattern(Locale.getDefault(), "MMMM d")
+        val formattedDate = DateFormat.format(datePattern, Calendar.getInstance())
 
         setDataToWidget(BiiIntents.Data.SALDO)
+        val speechText = "Berikut informasi saldo anda pada tanggal $formattedDate. adalah sebesar ${BiiIntents.Data.SALDO} Rupiah."
+        val displayText = "Berikut informasi saldo anda pada tanggal $formattedDate"
+        setTts(speechText, displayText)
 
-        if (hasBii) {
-            // formats speech and display text for Assistant
-            // https://developers.google.com/assistant/app/widgets#library
-            val speechText =
-                context.getString(R.string.widget_no_activity_speech, aboutExerciseName)
-            val displayText =
-                context.getString(R.string.widget_no_activity_text)
-
-            setTts(speechText, displayText)
-        }
+//        if (hasBii) {
+//            // formats speech and display text for Assistant
+//            // https://developers.google.com/assistant/app/widgets#library
+//            val speechText =
+//                context.getString(R.string.widget_no_activity_speech, aboutExerciseName)
+//            val displayText =
+//                context.getString(R.string.widget_no_activity_text)
+//
+//            setTts(speechText, displayText)
+//        }
     }
 
     /**
