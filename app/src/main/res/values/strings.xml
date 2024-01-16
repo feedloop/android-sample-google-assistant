@@ -21,7 +21,7 @@
 
     <string name="start_activity_title">Start %1$s in…</string>
 
-    <string name="stats_title">Way to GO!</string>
+    <string name="stats_title">BRImo</string>
     <string name="stats_total_distance">%1$d\nMeters</string>
     <string name="stats_total_duration">%1$d\nMinutes</string>
     <string name="stats_total_count">%1$d\nActivities</string>
