@@ -24,7 +24,7 @@ apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 34
+    compileSdk 34
     
     namespace "id.co.bri.brimo"
     // Configure only for each module that uses Java 8

@@ -17,241 +17,19 @@
 <shortcuts xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!-- shortcuts that are bound to the START_EXERCISE capability, and represents the different
-      types of exercises-->
-
-    <shortcut
-        android:shortcutId="saldo"
-        android:shortcutShortLabel="@string/activity_running">
-        <capability-binding android:key="actions.intent.START_EXERCISE">
-            <parameter-binding
-                android:key="exercise.name"
-                android:value="@array/saldoSynonyms" />
-        </capability-binding>
-    </shortcut>
-
-    <shortcut
-        android:shortcutId="walking"
-        android:shortcutShortLabel="@string/activity_walking">
-        <capability-binding android:key="actions.intent.START_EXERCISE">
-            <parameter-binding
-                android:key="exercise.name"
-                android:value="@array/walkingSynonyms" />
-        </capability-binding>
-    </shortcut>
-
-    <shortcut
-        android:shortcutId="cycling"
-        android:shortcutShortLabel="@string/activity_cycling">
-        <capability-binding android:key="actions.intent.START_EXERCISE">
-            <parameter-binding
-                android:key="exercise.name"
-                android:value="@array/cyclingSynonyms" />
-        </capability-binding>
-    </shortcut>
-
-    <!--    START_EXERCISE BII
-        https://developers.google.com/assistant/app/reference/built-in-intents/health-and-fitness/start-exercise
-        Be sure to replace all occurrences of ai.co.bri.brimo with the
-        application ID you specified in app/build.gradle.
-    -->
-    <capability android:name="actions.intent.START_EXERCISE">
-        <intent
-            android:action="android.intent.action.VIEW"
-            android:targetClass="id.co.bri.brimo.FitMainActivity"
-            android:targetPackage="id.co.bri.brimo">
-            <!-- Eg. exercisePlanName = "saldo" -->
-            <parameter
-                android:name="exercise.name"
-                android:key="exerciseType" />
-        </intent>
-    </capability>
-
-    <!-- shortcuts that are bound to the STOP_EXERCISE capability, and represents the different
-      types of exercises-->
-    <shortcut
-        android:shortcutId="saldo"
-        android:shortcutShortLabel="@string/activity_running">
-        <capability-binding android:key="actions.intent.STOP_EXERCISE">
-            <parameter-binding
-                android:key="exercise.name"
-                android:value="@array/saldoSynonyms" />
-        </capability-binding>
-    </shortcut>
-
-    <shortcut
-        android:shortcutId="walking"
-        android:shortcutShortLabel="@string/activity_walking">
-        <capability-binding android:key="actions.intent.STOP_EXERCISE">
-            <parameter-binding
-                android:key="exercise.name"
-                android:value="@array/walkingSynonyms" />
-        </capability-binding>
-    </shortcut>
-
-    <shortcut
-        android:shortcutId="cycling"
-        android:shortcutShortLabel="@string/activity_cycling">
-        <capability-binding android:key="actions.intent.STOP_EXERCISE">
-            <parameter-binding
-                android:key="exercise.name"
-                android:value="@array/cyclingSynonyms" />
-        </capability-binding>
-    </shortcut>
-
-    <!--    STOP_EXERCISE BII
-        https://developers.google.com/assistant/app/reference/built-in-intents/health-and-fitness/stop-exercise
-        Be sure to replace all occurrences of ai.co.bri.brimo with the
-        application ID you specified in app/build.gradle.
-    -->
-    <capability android:name="actions.intent.STOP_EXERCISE">
-        <intent
-            android:action="android.intent.action.VIEW"
-            android:targetClass="id.co.bri.brimo.FitMainActivity"
-            android:targetPackage="id.co.bri.brimo">
-            <!-- Eg. name = "Running" -->
-            <parameter
-                android:name="exercise.name"
-                android:key="stopExercise" />
-        </intent>
-    </capability>
-
-    <!--    &lt;!&ndash; shortcuts are bound to the GET_EXERCISE_OBSERVATION capability, and represents the-->
-    <!--      different types of exercises&ndash;&gt;-->
-    <!--    <shortcut-->
-    <!--        android:shortcutId="saldo"-->
-    <!--        android:shortcutShortLabel="@string/activity_running">-->
-    <!--        <capability-binding android:key="actions.intent.GET_EXERCISE_OBSERVATION">-->
-    <!--            <parameter-binding-->
-    <!--                android:key="exerciseObservation.aboutExercise.name"-->
-    <!--                android:value="@array/saldoSynonyms"/>-->
-    <!--        </capability-binding>-->
-    <!--    </shortcut>-->
-
-    <!--    <shortcut-->
-    <!--        android:shortcutId="walking"-->
-    <!--        android:shortcutShortLabel="@string/activity_walking">-->
-    <!--        <capability-binding android:key="actions.intent.GET_EXERCISE_OBSERVATION">-->
-    <!--            <parameter-binding-->
-    <!--                android:key="exerciseObservation.aboutExercise.name"-->
-    <!--                android:value="@array/walkingSynonyms"/>-->
-    <!--        </capability-binding>-->
-    <!--    </shortcut>-->
-
-    <!--    <shortcut-->
-    <!--        android:shortcutId="cycling"-->
-    <!--        android:shortcutShortLabel="@string/activity_cycling">-->
-    <!--        <capability-binding android:key="actions.intent.GET_EXERCISE_OBSERVATION">-->
-    <!--            <parameter-binding-->
-    <!--                android:key="exerciseObservation.aboutExercise.name"-->
-    <!--                android:value="@array/cyclingSynonyms"/>-->
-    <!--        </capability-binding>-->
-    <!--    </shortcut>-->
-
-    <!--    &lt;!&ndash;    GET_EXERCISE_OBSERVATION-->
-    <!--        hhttps://developers.google.com/assistant/app/reference/built-in-intents/health-and-fitness/get-exercise-observation-->
-    <!--        Be sure to replace all occurrences of ai.co.bri.brimo with the-->
-    <!--        application ID you specified in app/build.gradle.-->
-    <!--    &ndash;&gt;-->
-    <!--    <capability android:name="actions.intent.GET_EXERCISE_OBSERVATION">-->
-    <!--        <app-widget-->
-    <!--            android:identifier="GET_EXERCISE_OBSERVATION"-->
-    <!--            android:targetClass="ai.co.bri.brimo.widgets.StatsWidgetProvider"-->
-    <!--            android:targetPackage="ai.co.bri.brimo">-->
-    <!--            <parameter-->
-    <!--                android:name="exerciseObservation.aboutExercise.name"-->
-    <!--                android:key="aboutExerciseName"-->
-    <!--                android:required="true">-->
-    <!--            </parameter>-->
-    <!--            <extra android:name="hasTts" android:value="true"/>-->
-    <!--        </app-widget>-->
-    <!--        &lt;!&ndash; Fallback intent with no parameters required to successfully execute.&ndash;&gt;-->
-    <!--        <intent-->
-    <!--            android:identifier="GET_EXERCISE_OBSERVATION_FALLBACK"-->
-    <!--            android:action="android.intent.action.VIEW"-->
-    <!--            android:targetClass="ai.co.bri.brimo.widgets.StatsWidgetProvider">-->
-    <!--        </intent>-->
-    <!--    </capability>-->
-
-
     <!-- /////////////////////////// -->
 
-    <!-- shortcuts are bound to the GET_EXERCISE_OBSERVATION capability, and represents the
-      different types of exercises-->
     <shortcut
-        android:shortcutId="saldo"
-        android:shortcutShortLabel="@string/activity_running">
-        <capability-binding android:key="actions.intent.GET_ACCOUNT">
-            <parameter-binding
-                android:value="accountName"
-                android:key="account.name"/>
-        </capability-binding>
-    </shortcut>
-
-    <!--    GET_EXERCISE_OBSERVATION
-        hhttps://developers.google.com/assistant/app/reference/built-in-intents/health-and-fitness/get-exercise-observation
-        Be sure to replace all occurrences of ai.co.bri.brimo with the
-        application ID you specified in app/build.gradle.
-    -->
-    <capability android:name="actions.intent.GET_ACCOUNT">
-        <app-widget
-            android:identifier="GET_INVOICE_1"
-            android:targetClass="id.co.bri.brimo.widgets.StatsWidgetProvider"
-            android:targetPackage="id.co.bri.brimo">
-            <!-- Eg. forServiceName = "Utility" -->
-<!--            <parameter-->
-<!--                android:name="invoice.forService.name"-->
-<!--                android:key="forServiceName" />-->
-<!--            &lt;!&ndash; Eg. providerName = "Example Provider" &ndash;&gt;-->
-<!--            <parameter-->
-<!--                android:name="invoice.forService.provider.name"-->
-<!--                android:key="providerName" />-->
-            <parameter
-                android:name="account.name"
-                android:key="accountName"/>
-            <!-- Eg. description = "Description of account" -->
-            <parameter
-                android:name="account.description"
-                android:key="description"/>
-            <!-- Eg. providerName = "Example Provider" -->
-            <parameter
-                android:name="account.provider.name"
-                android:key="providerName"/>
-            <extra
-                android:name="hasTts"
-                android:value="true" />
-        </app-widget>
-        <!-- Fallback intent with no parameters required to successfully execute.-->
-        <intent
-            android:action="android.intent.action.VIEW"
-            android:identifier="GET_INVOICE_FALLBACK_1"
-            android:targetClass="id.co.bri.brimo.widgets.StatsWidgetProvider"></intent>
-    </capability>
-
-
-    <!-- /////////////////////////// -->
-
-    <!-- /////////////////////////// -->
-
-    <!-- shortcuts are bound to the GET_EXERCISE_OBSERVATION capability, and represents the
-      different types of exercises-->
-    <shortcut
-        android:shortcutId="CREATE_MONEY_TRANSFER"
+        android:shortcutId="transfer"
         android:shortcutShortLabel="@string/activity_transfer"
         android:shortcutLongLabel="@string/activity_transfer">
-        <capability-binding android:key="actions.intent.CREATE_MONEY_TRANSFER"
-            android:value="transfer;money">
+        <capability-binding android:key="actions.intent.CREATE_MONEY_TRANSFER">
             <parameter-binding
                 android:value="moneyTransferOriginName"
                 android:key="moneyTransfer.moneyTransferOrigin.name"/>
         </capability-binding>
     </shortcut>
 
-    <!--    GET_EXERCISE_OBSERVATION
-        hhttps://developers.google.com/assistant/app/reference/built-in-intents/health-and-fitness/get-exercise-observation
-        Be sure to replace all occurrences of ai.co.bri.brimo with the
-        application ID you specified in app/build.gradle.
-    -->
     <capability android:name="actions.intent.CREATE_MONEY_TRANSFER">
         <app-widget
             android:identifier="CREATE_MONEY_TRANSFER_1"
@@ -284,93 +62,60 @@
         </app-widget>
         <!-- Fallback intent with no parameters required to successfully execute.-->
         <intent
+            android:identifier="CREATE_MONEY_TRANSFER_FALLBACK_1"
             android:action="android.intent.action.VIEW"
-            android:identifier="CREATE_MONEY_TRANSFER_FALLBACK"
-            android:targetClass="id.co.bri.brimo.widgets.TransferWidgetProvider"></intent>
+            android:targetClass="id.co.bri.brimo.widgets.TransferWidgetProvider"/>
     </capability>
 
     <!-- /////////////////////////// -->
 
-    <!--    &lt;!&ndash; /////////////////////////// &ndash;&gt;-->
+    <!-- /////////////////////////// -->
 
-    <!--    &lt;!&ndash; shortcuts are bound to the GET_EXERCISE_OBSERVATION capability, and represents the-->
-    <!--      different types of exercises&ndash;&gt;-->
-    <!--    <shortcut-->
-    <!--        android:shortcutId="BALANCE_CHECK"-->
-    <!--        android:shortcutShortLabel="@string/activity_running">-->
-    <!--        <capability-binding android:key="custom.actions.intent.BALANCE_CHECK">-->
-    <!--            <parameter-binding-->
-    <!--                android:key="apptType"-->
-    <!--                android:value="BALANCE CHECK" />-->
-    <!--        </capability-binding>-->
-    <!--    </shortcut>-->
+    <shortcut
+        android:shortcutId="saldo"
+        android:shortcutShortLabel="@string/activity_running">
+        <capability-binding android:key="actions.intent.GET_ACCOUNT">
+            <parameter-binding
+                android:value="accountName"
+                android:key="account.name"/>
+        </capability-binding>
+    </shortcut>
 
-    <!--    &lt;!&ndash;    GET_EXERCISE_OBSERVATION-->
-    <!--        hhttps://developers.google.com/assistant/app/reference/built-in-intents/health-and-fitness/get-exercise-observation-->
-    <!--        Be sure to replace all occurrences of ai.co.bri.brimo with the-->
-    <!--        application ID you specified in app/build.gradle.-->
-    <!--    &ndash;&gt;-->
-    <!--    <capability-->
-    <!--        android:name="custom.actions.intent.BALANCE_CHECK"-->
-    <!--        app:queryPatterns="@array/saldoSynonyms">-->
-    <!--        <app-widget-->
-    <!--            android:identifier="BALANCE_CHECK"-->
-    <!--            android:targetClass="ai.co.bri.brimo.widgets.StatsWidgetProvider"-->
-    <!--            android:targetPackage="ai.co.bri.brimo">-->
-    <!--            <extra-->
-    <!--                android:name="hasTts"-->
-    <!--                android:value="true" />-->
-    <!--        </app-widget>-->
-    <!--        &lt;!&ndash; Fallback intent with no parameters required to successfully execute.&ndash;&gt;-->
-    <!--        <intent-->
-    <!--            android:action="android.intent.action.VIEW"-->
-    <!--            android:identifier="BALANCE_CHECK_FALLBACK"-->
-    <!--            android:targetClass="ai.co.bri.brimo.widgets.StatsWidgetProvider"></intent>-->
-    <!--    </capability>-->
+    <capability android:name="actions.intent.GET_ACCOUNT">
+        <app-widget
+            android:identifier="GET_INVOICE_1"
+            android:targetClass="id.co.bri.brimo.widgets.StatsWidgetProvider"
+            android:targetPackage="id.co.bri.brimo">
+            <!-- Eg. forServiceName = "Utility" -->
+<!--            <parameter-->
+<!--                android:name="invoice.forService.name"-->
+<!--                android:key="forServiceName" />-->
+<!--            &lt;!&ndash; Eg. providerName = "Example Provider" &ndash;&gt;-->
+<!--            <parameter-->
+<!--                android:name="invoice.forService.provider.name"-->
+<!--                android:key="providerName" />-->
+            <parameter
+                android:name="account.name"
+                android:key="accountName"/>
+            <!-- Eg. description = "Description of account" -->
+            <parameter
+                android:name="account.description"
+                android:key="description"/>
+            <!-- Eg. providerName = "Example Provider" -->
+            <parameter
+                android:name="account.provider.name"
+                android:key="providerName"/>
+            <extra
+                android:name="hasTts"
+                android:value="true" />
+        </app-widget>
+        <!-- Fallback intent with no parameters required to successfully execute.-->
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:identifier="GET_INVOICE_FALLBACK_1"
+            android:targetClass="id.co.bri.brimo.widgets.StatsWidgetProvider"/>
+    </capability>
 
-
-    <!--    &lt;!&ndash; /////////////////////////// &ndash;&gt;-->
-
-    <!--    <shortcut-->
-    <!--        android:enabled="true"-->
-    <!--        android:icon="@drawable/ic_launcher_foreground"-->
-    <!--        android:shortcutId="SALDO"-->
-    <!--        android:shortcutShortLabel="@string/check_balance_short_label">-->
-
-    <!--        <intent android:action="actions.intent.GET_INVOICE">-->
-    <!--            <extra-->
-    <!--                android:name="fulfillmentMode"-->
-    <!--                android:value="actions.fulfillment.SLICE" />-->
-    <!--            <extra-->
-    <!--                android:name="urlTemplate"-->
-    <!--                android:value="https://ai.co.bri.brimo.google_assistant/get_invoice" />-->
-    <!--        </intent>-->
-
-    <!--    </shortcut>-->
-    <!--    <capability android:name="actions.intent.GET_INVOICE">-->
-    <!--        <intent-->
-    <!--            android:action="android.intent.action.VIEW"-->
-    <!--            android:targetClass="ai.co.bri.brimo.FitMainActivity"-->
-    <!--            android:targetPackage="ai.co.bri.brimo">-->
-    <!--            &lt;!&ndash; Eg. forServiceName = "Utility" &ndash;&gt;-->
-    <!--            <parameter-->
-    <!--                android:name="invoice.forService.name"-->
-    <!--                android:key="forServiceName" />-->
-    <!--            &lt;!&ndash; Eg. providerName = "Example Provider" &ndash;&gt;-->
-    <!--            <parameter-->
-    <!--                android:name="invoice.forService.provider.name"-->
-    <!--                android:key="providerName" />-->
-    <!--        </intent>-->
-    <!--    </capability>-->
-    <!--    <shortcut-->
-    <!--        android:shortcutId="SALDO"-->
-    <!--        android:shortcutLongLabel="@string/check_balance_long_label"-->
-    <!--        android:shortcutShortLabel="@string/check_balance_short_label">-->
-    <!--        <capability-binding android:key="actions.intent.GET_INVOICE">-->
-    <!--            <parameter-binding-->
-    <!--                android:key="invoice.forService.name"-->
-    <!--                android:value="forServiceName" />-->
-    <!--        </capability-binding>-->
-    <!--    </shortcut>-->
+    <!-- /////////////////////////// -->
 
 </shortcuts>
