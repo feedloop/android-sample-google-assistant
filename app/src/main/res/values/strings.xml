@@ -12,6 +12,9 @@
     <string name="service_name">Service: %s</string>
     <string name="cards">cards</string>
     <string name="accounts">accounts</string>
+    <string name="get_account">get_account</string>
+    <string name="widget_description">This is an app widget that displays balance</string>
+    <string name="activity_unknown">Unknown</string>
     <string-array name="subscribe_to_financial_services">
         <item>subscribe me to $service1</item>
         <item>make a subscription to $service1</item>

@@ -25,4 +25,6 @@ object Params {
     const val TRANSFER_DESTINATION_PROVIDER = "moneyTransferDestinationProvidername"
 
     const val SERVICE_NAME = "service"
+
+    const val BALANCE = "1.500.000"
 }

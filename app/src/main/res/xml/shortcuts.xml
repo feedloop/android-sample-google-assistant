@@ -52,6 +52,7 @@
             <url-template android:value="https://zavanton.com/payment{?transferMode,value,currency,moneyTransferOriginName,moneyTransferDestinationName,moneyTransferOriginProvidername,moneyTransferDestinationProvidername}" />
             <parameter
                 android:name="moneyTransfer.transferMode"
+                android:required="true"
                 android:key="transferMode" />
             <parameter
                 android:name="moneyTransfer.amount.value"
@@ -69,7 +70,7 @@
                 android:name="moneyTransfer.moneyTransferOrigin.provider.name"
                 android:key="moneyTransferOriginProvidername" />
             <parameter
-                android:name="moneyTransfer.moneyTransferDestination.provider.namee"
+                android:name="moneyTransfer.moneyTransferDestination.provider.name"
                 android:key="moneyTransferDestinationProvidername" />
         </intent>
         <!--    fallback fulfillment -->
@@ -115,26 +116,68 @@
 <!--    </shortcut>-->
 
 
-    <!--    App Action with slice fulfillment -->
+    <!--    Example commands:
+      Show my ExampleProvider portfolio.
+      Please show me the performance of my ExampleProvider portfolio.
+      Let me see my ExampleProvider investment portfolio.
+      Bring up my ExampleProvider portfolio.
+      Get ExampleProvider account balance.
+      What's my ExampleProvider account balance?
+    -->
+    <shortcut
+        android:shortcutId="get_account"
+        android:shortcutShortLabel="@string/get_account">
+        <capability-binding android:key="actions.intent.GET_ACCOUNT">
+            <parameter-binding
+                android:value="accountName"
+                android:key="account.name"/>
+        </capability-binding>
+    </shortcut>
+
     <capability android:name="actions.intent.GET_ACCOUNT">
-        <slice>
-            <url-template android:value="content://com.zavanton.slices.account.provider{?accountName,description,providerName}" />
+        <app-widget
+            android:targetClass="com.zavanton.appactionsdemo.widgets.BalanceWidgetProvider"
+            android:targetPackage="com.zavanton.appactionsdemo">
             <parameter
                 android:name="account.name"
                 android:key="accountName"/>
             <parameter
                 android:name="account.description"
-                android:key="description" />
+                android:key="description"/>
             <parameter
                 android:name="account.provider.name"
-                android:key="providerName" />
-        </slice>
-
-        <!-- the fallback fulfillment -->
-        <slice>
-            <url-template android:value="content://com.zavanton.slices.account.provider" />
-        </slice>
+                android:key="providerName"/>
+            <extra
+                android:name="hasTts"
+                android:value="true" />
+        </app-widget>
+        <!-- Fallback intent with no parameters required to successfully execute.-->
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetClass="com.zavanton.appactionsdemo.widgets.BalanceWidgetProvider"/>
     </capability>
+
+<!--    &lt;!&ndash;    App Action with slice fulfillment &ndash;&gt;-->
+<!--    <capability android:name="actions.intent.GET_ACCOUNT">-->
+<!--        <slice>-->
+<!--            <url-template android:value="content://com.zavanton.slices.account.provider{?accountName,description,providerName}" />-->
+<!--            <parameter-->
+<!--                android:name="account.name"-->
+<!--                android:required="true"-->
+<!--                android:key="accountName"/>-->
+<!--            <parameter-->
+<!--                android:name="account.description"-->
+<!--                android:key="description" />-->
+<!--            <parameter-->
+<!--                android:name="account.provider.name"-->
+<!--                android:key="providerName" />-->
+<!--        </slice>-->
+
+<!--        &lt;!&ndash; the fallback fulfillment &ndash;&gt;-->
+<!--        <slice>-->
+<!--            <url-template android:value="content://com.zavanton.slices.account.provider" />-->
+<!--        </slice>-->
+<!--    </capability>-->
 
 
     <!--    App action with custom intent  -->

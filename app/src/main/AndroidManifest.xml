@@ -17,9 +17,6 @@
 <!--        <meta-data-->
 <!--            android:name="com.google.android.actions"-->
 <!--            android:resource="@xml/actions" />-->
-        <meta-data
-            android:name="android.app.shortcuts"
-            android:resource="@xml/shortcuts" />
 
         <activity android:name=".MainActivity"
             android:exported="true">
@@ -40,6 +37,10 @@
                     android:host="zavanton.com"
                     android:scheme="https" />
             </intent-filter>
+
+            <meta-data
+                android:name="android.app.shortcuts"
+                android:resource="@xml/shortcuts" />
         </activity>
 
         <!-- Define your SliceProvider -->
@@ -55,5 +56,24 @@
             </intent-filter>
         </provider>
 
+        <!--widget-->
+        <receiver
+            android:name=".widgets.BalanceWidgetProvider"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/balance_widget" />
+        </receiver>
+        <service
+            android:name=".widgets.BalanceWidgetProvider"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.assistant.appactions.widgets.PIN_APP_WIDGET" />
+            </intent-filter>
+        </service>
     </application>
 </manifest>
