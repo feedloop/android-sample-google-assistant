@@ -20,6 +20,8 @@
 
         <activity
             android:name=".MainActivity"
+            android:screenOrientation="fullSensor"
+            android:label="@string/app_name"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -45,10 +47,12 @@
         </activity>
         <activity
             android:name=".PinViewActivity"
+            android:exported="false"
             android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".SuccessActivity"
+            android:exported="false"
             android:screenOrientation="fullSensor"
             android:theme="@style/AppTheme.NoActionBar" />
 
@@ -68,7 +72,8 @@
         <!--widget-->
         <receiver
             android:name=".widgets.BalanceWidgetProvider"
-            android:exported="false">
+            android:enabled="true"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
