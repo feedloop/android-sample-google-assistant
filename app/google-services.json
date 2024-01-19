@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "669375394105",
+    "project_id": "appactionsdemo-11c47",
+    "storage_bucket": "appactionsdemo-11c47.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:669375394105:android:113cb048e4a86b4dcff8e8",
+        "android_client_info": {
+          "package_name": "com.zavanton.appactionsdemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "669375394105-33gbrfitee7hnlstngpm57bi2k0qpjpn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvdOh0r6bb1S9LWV4ly3TxdCJzFPWRUA8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "669375394105-33gbrfitee7hnlstngpm57bi2k0qpjpn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
