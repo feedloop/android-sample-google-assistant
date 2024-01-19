@@ -12,7 +12,7 @@ android {
 
     defaultConfig {
         applicationId "com.zavanton.appactionsdemo"
-        minSdkVersion 21
+        minSdkVersion 23
         targetSdkVersion 34
         versionCode 1
         versionName "1.0"
@@ -59,4 +59,7 @@ dependencies {
 
     // AppActions
     implementation "com.google.assistant.appactions:widgets:0.0.1"
+
+    //PinView
+    implementation "com.github.Qusion:android-pin-dot-view:0.1.0"
 }

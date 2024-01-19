@@ -46,4 +46,11 @@
         <item name="android:textColor">?android:attr/textColorPrimary</item>
     </style>
 
+    <style name="ThemeOverlay.PinDotView" parent="">
+        <item name="colorPrimary">@color/orange</item> // Tints biometric icon and active elements of pin input
+        <item name="colorOnSurface">@color/white</item> // Changes color of idle elements of pin input and keyboard delimiters
+        <item name="colorButtonNormal">@color/white</item> // Changes color of idle elements of pin input and keyboard delimiters
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 </resources>

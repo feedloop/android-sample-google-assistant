@@ -1,11 +1,14 @@
 package com.zavanton.appactionsdemo.features
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import com.zavanton.appactionsdemo.MainActivity
+import com.zavanton.appactionsdemo.PinViewActivity
 import com.zavanton.appactionsdemo.R
 import com.zavanton.appactionsdemo.databinding.FragmentPaymentBinding
 
@@ -71,15 +74,15 @@ class PaymentFragment : Fragment() {
 
         val originFinal: String
         if (origin == "") {
-            originFinal= "-"
+            originFinal = "-"
             binding.txtFromRek.text = "-"
-        } else originFinal=origin
+        } else originFinal = origin
 
         val destinationFinal: String
         if (destination == "") {
-            destinationFinal= "-"
+            destinationFinal = "-"
             binding.txtToRek.text = "-"
-        } else destinationFinal=destination
+        } else destinationFinal = destination
 
         binding.tvAmount.text = amountFinal
         binding.tvAmount2.text = amountFinal
@@ -90,5 +93,18 @@ class PaymentFragment : Fragment() {
         binding.tvDestination.text = destinationFinal
 //        binding.tvOriginProvider.text = getString(R.string.transfer_origin_provider, originProvider)
 //        binding.tvDestinationProvider.text = getString(R.string.transfer_destination_provider, destinationProvider)
+
+        binding.btnConf.setOnClickListener {
+            activity?.let {
+                val intent = Intent(it, PinViewActivity::class.java)
+                it.startActivity(intent)
+            }
+        }
+        binding.btnCancel.setOnClickListener {
+            activity?.let {
+                val intent = Intent(it, MainActivity::class.java)
+                it.startActivity(intent)
+            }
+        }
     }
 }
