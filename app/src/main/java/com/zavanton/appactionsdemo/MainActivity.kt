@@ -38,13 +38,6 @@ class MainActivity : AppCompatActivity() {
         var isActionHandled = true
 
         when (intent.data?.path) {
-            Deeplink.INVOICE -> startFragment(InvoiceFragment.newInstance())
-            Deeplink.CARD_LIST -> startFragment(CardListFragment.newInstance())
-            Deeplink.ACCOUNT_LIST -> startFragment(AccountListFragment.newInstance())
-            Deeplink.SEARCH -> {
-                val searchQuery = intent.data?.getQueryParameter(Params.QUERY).orEmpty()
-                startFragment(SearchFragment.newInstance(searchQuery))
-            }
             Deeplink.PAYMENT -> {
                 val transferMode = intent.data?.getQueryParameter(Params.TRANSFER_MODE).orEmpty()
                 val transferValue = intent.data?.getQueryParameter(Params.TRANSFER_VALUE).orEmpty()
@@ -61,10 +54,6 @@ class MainActivity : AppCompatActivity() {
                         transferDestination, transferOriginProvider, transferDestinationProvider
                     )
                 )
-            }
-            Deeplink.FINANCIAL_SERVICES -> {
-                val serviceName = intent.data?.getQueryParameter(Params.SERVICE_NAME).orEmpty()
-                startFragment(CustomFragment.newInstance(serviceName))
             }
             else -> {
                 startFragment(HomeFragment.newInstance())

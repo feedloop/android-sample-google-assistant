@@ -2,18 +2,12 @@ package com.zavanton.appactionsdemo.features
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
-import com.zavanton.appactionsdemo.MainActivity
+import com.zavanton.appactionsdemo.Params
 import com.zavanton.appactionsdemo.PinViewActivity
 import com.zavanton.appactionsdemo.R
 import com.zavanton.appactionsdemo.databinding.ActivityConfirmPaymentBinding
-import com.zavanton.appactionsdemo.databinding.ActivityPinviewBinding
-import com.zavanton.appactionsdemo.databinding.FragmentPaymentBinding
 
 class ConfirmPaymentActivity : AppCompatActivity() {
 
@@ -52,6 +46,8 @@ class ConfirmPaymentActivity : AppCompatActivity() {
         val destinationFinal: String = if (destination == "") {
             "Aditya Putra"
         } else destination
+
+        binding.txtBalance.text = Params.BALANCE
 
         binding.tvAmount.text = amountFinal
         binding.tvAmount2.text = amountFinal

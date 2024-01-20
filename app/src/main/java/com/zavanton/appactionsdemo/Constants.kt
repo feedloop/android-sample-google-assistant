@@ -1,12 +1,7 @@
 package com.zavanton.appactionsdemo
 
 object Deeplink {
-    const val INVOICE = "/invoice"
-    const val CARD_LIST = "/card-list"
-    const val ACCOUNT_LIST = "/account-list"
-    const val SEARCH = "/search"
     const val PAYMENT = "/payment"
-    const val FINANCIAL_SERVICES = "/services"
 }
 
 object Actions {
@@ -14,7 +9,6 @@ object Actions {
 }
 
 object Params {
-    const val QUERY = "query"
 
     const val TRANSFER_MODE = "transferMode"
     const val TRANSFER_VALUE = "value"
@@ -24,7 +18,5 @@ object Params {
     const val TRANSFER_ORIGIN_PROVIDER = "moneyTransferOriginProvidername"
     const val TRANSFER_DESTINATION_PROVIDER = "moneyTransferDestinationProvidername"
 
-    const val SERVICE_NAME = "service"
-
-    const val BALANCE = "1.500.000"
+    const val BALANCE = "1.800.000"
 }

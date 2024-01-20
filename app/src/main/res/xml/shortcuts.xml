@@ -2,34 +2,6 @@
 <shortcuts xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!--    Hello world -->
-    <!--  Example commands:
-    Get ExampleProvider bill.
-    ExampleProvider June credit card bill.
-    Show me my current bill using ExampleProvider.
-    Open up my mortgage statement using ExampleProvider.
-      -->
-<!--    <capability android:name="actions.intent.GET_INVOICE">-->
-<!--        <intent>-->
-<!--            <url-template android:value="https://zavanton.com/invoice" />-->
-<!--        </intent>-->
-<!--    </capability>-->
-
-
-<!--    &lt;!&ndash;    Parse some parameters from command &ndash;&gt;-->
-<!--    &lt;!&ndash;    Example commands: &ndash;&gt;-->
-<!--    &lt;!&ndash;    "Find waterfall hikes on ExampleApp" &ndash;&gt;-->
-<!--    &lt;!&ndash;    "Look up summer dresses in ExampleApp" &ndash;&gt;-->
-<!--    <capability android:name="actions.intent.GET_THING">-->
-<!--        <intent>-->
-<!--            <url-template android:value="https://zavanton.com/search{?query}" />-->
-<!--            <parameter-->
-<!--                android:name="thing.namee"-->
-<!--                android:key="query" />-->
-<!--        </intent>-->
-<!--    </capability>-->
-
-
     <!--    Parse many params from command, use fallback fullfilment -->
     <!--    Example commands:
     Send money on ExampleProvider.
@@ -78,42 +50,6 @@
             <url-template android:value="https://zavanton.com/payment" />
         </intent>
     </capability>
-
-
-    <!--    Use entity set to map command params to urls -->
-    <!--    Example commands: -->
-    <!--    "Show me cards on ExampleApp" -->
-    <!--    "Open accounts in ExampleApp" -->
-<!--    <capability android:name="actions.intent.OPEN_APP_FEATURE">-->
-<!--        <intent-->
-<!--            android:targetClass="com.zavanton.appactionsdemo.MainActivity"-->
-<!--            android:targetPackage="com.zavanton.appactionsdemo">-->
-<!--            <parameter-->
-<!--                android:name="feature"-->
-<!--                android:key="myappfeature" />-->
-<!--        </intent>-->
-<!--    </capability>-->
-<!--    &lt;!&ndash; Short and long labels must be @string resource. &ndash;&gt;-->
-<!--    <shortcut-->
-<!--        android:shortcutId="cards"-->
-<!--        android:shortcutLongLabel="@string/cards"-->
-<!--        android:shortcutShortLabel="@string/cards">-->
-<!--        <capability-binding android:key="actions.intent.OPEN_APP_FEATURE">-->
-<!--            <parameter-binding-->
-<!--                android:key="feature"-->
-<!--                android:value="cards" />-->
-<!--        </capability-binding>-->
-<!--    </shortcut>-->
-<!--    <shortcut-->
-<!--        android:shortcutId="accounts"-->
-<!--        android:shortcutLongLabel="@string/accounts"-->
-<!--        android:shortcutShortLabel="@string/accounts">-->
-<!--        <capability-binding android:key="actions.intent.OPEN_APP_FEATURE">-->
-<!--            <parameter-binding-->
-<!--                android:key="feature"-->
-<!--                android:value="accounts" />-->
-<!--        </capability-binding>-->
-<!--    </shortcut>-->
 
 
     <!--    Example commands:
@@ -177,25 +113,6 @@
 <!--        <slice>-->
 <!--            <url-template android:value="content://com.zavanton.slices.account.provider" />-->
 <!--        </slice>-->
-<!--    </capability>-->
-
-
-    <!--    App action with custom intent  -->
-    <!--    Example commands
-        "Hey Google, open ExampleGameApp and subscribe me to someService"
-        "Hey Google, open ExampleGameApp and make a subscription to someService."
-        "Hey Google, start ExampleGameApp and enable service someService."
-    -->
-<!--    <capability-->
-<!--        android:name="custom.actions.intent.SUBSCRIBE_TO_FINANCIAL_SERVICE"-->
-<!--        app:queryPatterns="@array/subscribe_to_financial_services">-->
-<!--        <intent>-->
-<!--            <url-template android:value="https://zavanton.com/services{?service}" />-->
-<!--            <parameter-->
-<!--                android:name="service"-->
-<!--                android:key="service"-->
-<!--                android:mimeType="https://schema.org/Text" />-->
-<!--        </intent>-->
 <!--    </capability>-->
 
 </shortcuts>

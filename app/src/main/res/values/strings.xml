@@ -1,24 +1,8 @@
 <resources>
     <string name="app_name">Bank</string>
-    <string name="search_query">Searching for: %s</string>
-    <string name="transfer_value">Transfer value: %s</string>
-    <string name="transfer_mode">Transfer mode: %s</string>
-    <string name="transfer_currency">Transfer currency: %s</string>
-    <string name="transfer_origin">Transfer origin: %s</string>
-    <string name="transfer_destination">Transfer destination: %s</string>
-    <string name="transfer_origin_provider">Transfer origin provider: %s</string>
-    <string name="transfer_destination_provider">Transfer destination provider: %s</string>
-    <string name="slice_enter_app_hint">Open App</string>
-    <string name="service_name">Service: %s</string>
-    <string name="cards">cards</string>
     <string name="accounts">accounts</string>
     <string name="get_account">get_account</string>
     <string name="widget_description">This is an app widget that displays balance</string>
     <string name="activity_unknown">Unknown</string>
     <string name="desk_payment">Kami menemukan beberapa rekening atas nama %s. Pilih rekening yang Anda tuju :</string>
-    <string-array name="subscribe_to_financial_services">
-        <item>subscribe me to $service1</item>
-        <item>make a subscription to $service1</item>
-        <item>enable service $service1</item>
-    </string-array>
 </resources>

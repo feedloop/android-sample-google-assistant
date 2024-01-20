@@ -7,8 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import com.zavanton.appactionsdemo.MainActivity
-import com.zavanton.appactionsdemo.PinViewActivity
 import com.zavanton.appactionsdemo.R
 import com.zavanton.appactionsdemo.databinding.FragmentPaymentBinding
 

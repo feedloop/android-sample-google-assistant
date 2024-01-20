@@ -4,19 +4,11 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
-import com.zavanton.appactionsdemo.MainActivity
-import com.zavanton.appactionsdemo.PinViewActivity
+import com.zavanton.appactionsdemo.Params
 import com.zavanton.appactionsdemo.R
-import com.zavanton.appactionsdemo.databinding.ActivityConfirmPaymentBinding
 import com.zavanton.appactionsdemo.databinding.ActivityInputPaymentBinding
-import com.zavanton.appactionsdemo.databinding.ActivityPinviewBinding
-import com.zavanton.appactionsdemo.databinding.FragmentPaymentBinding
 
 class InputPaymentActivity : AppCompatActivity() {
 
@@ -57,6 +49,7 @@ class InputPaymentActivity : AppCompatActivity() {
             }
         })
 
+        binding.txtBalance.text = Params.BALANCE
         binding.textFieldInput.editText?.requestFocus()
         binding.btnConf.setOnClickListener {
             intentPayment()
