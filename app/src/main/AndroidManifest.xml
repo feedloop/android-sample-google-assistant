@@ -13,14 +13,9 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
 
-        <!--   set up actions     -->
-        <!--        <meta-data-->
-        <!--            android:name="com.google.android.actions"-->
-        <!--            android:resource="@xml/actions" />-->
-
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="fullSensor"
+            android:screenOrientation="portrait"
             android:label="@string/app_name"
             android:exported="true">
             <intent-filter>
@@ -48,12 +43,22 @@
         <activity
             android:name=".PinViewActivity"
             android:exported="false"
-            android:screenOrientation="fullSensor"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".SuccessActivity"
             android:exported="false"
-            android:screenOrientation="fullSensor"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".features.ConfirmPaymentActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".features.InputPaymentActivity"
+            android:exported="false"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <!-- Define your SliceProvider -->

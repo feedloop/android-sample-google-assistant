@@ -15,6 +15,7 @@
     <string name="get_account">get_account</string>
     <string name="widget_description">This is an app widget that displays balance</string>
     <string name="activity_unknown">Unknown</string>
+    <string name="desk_payment">Kami menemukan beberapa rekening atas nama %s. Pilih rekening yang Anda tuju :</string>
     <string-array name="subscribe_to_financial_services">
         <item>subscribe me to $service1</item>
         <item>make a subscription to $service1</item>

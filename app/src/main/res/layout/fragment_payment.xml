@@ -48,9 +48,11 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/lnTop"
                 android:layout_centerHorizontal="true"
-                android:layout_margin="8dp"
-                android:contentDescription="Saldo anda"
-                android:text="Berikut ringkasan transfer Anda. Apakah Anda setuju?"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="@string/desk_payment"
                 android:textSize="15sp" />
 
             <LinearLayout
@@ -58,366 +60,97 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/appwidgetTypeTitle"
-                android:layout_margin="8dp"
-                android:background="@drawable/round_grey_line"
                 android:orientation="vertical">
 
                 <LinearLayout
+                    android:id="@+id/click1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/round_grey_line_top">
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/round_grey_line"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
                     <TextView
+                        android:id="@+id/tvName1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:padding="16dp"
-                        android:text="Transfer sesama bank"
+                        android:text="Aditya Putra (BRI)"
                         android:textSize="15sp"
                         android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvNoRek1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tA"
+                        android:text="BRI 0892389207231"
+                        android:textSize="15sp" />
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/lnAmount"
+                    android:id="@+id/click2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:background="@drawable/round_grey"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/round_grey_line"
+                    android:foreground="?android:attr/selectableItemBackground"
                     android:orientation="vertical"
-                    android:padding="8dp">
+                    android:padding="16dp">
 
                     <TextView
-                        android:id="@+id/tA"
+                        android:id="@+id/tvName2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:gravity="center"
-                        android:text="Amount"
-                        android:textSize="15sp" />
+                        android:text="Aditya Putra (Mandiri)"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
+                    <TextView
+                        android:id="@+id/tvNoRek2"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/tvCurrency"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/tA"
-                            android:layout_centerHorizontal="true"
-                            android:layout_marginRight="8dp"
-                            android:gravity="center"
-                            android:text=""
-                            android:textSize="22sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:id="@+id/tvAmount"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_below="@+id/tA"
-                            android:layout_centerHorizontal="true"
-                            android:gravity="center"
-                            android:text="0"
-                            android:textSize="22sp"
-                            android:textStyle="bold" />
-                    </LinearLayout>
+                        android:layout_below="@+id/tA"
+                        android:text="Mandiri 875957832929"
+                        android:textSize="15sp" />
                 </LinearLayout>
 
-                <RelativeLayout
-                    android:id="@+id/lnBelance"
+                <LinearLayout
+                    android:id="@+id/click3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/lnT"
-                    android:layout_marginStart="16dp"
+                    android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
-                    android:layout_marginEnd="16dp"
-                    android:orientation="horizontal">
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/round_grey_line"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:orientation="vertical"
+                    android:padding="16dp">
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:id="@+id/tvName3"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="Current Balance"
+                        android:text="Aditya Putra (BNI)"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvNoRek3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tA"
+                        android:text="BNI 84932043024"
                         android:textSize="15sp" />
+                </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/txtBalance"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:gravity="right"
-                        android:text="Rp 32.450.230"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-                </RelativeLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/grey"
-                    android:layout_margin="16dp"/>
-
-                <TextView
-                    android:id="@+id/deskFrom"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/lnBelance"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:text="Transfer from"
-                    android:textSize="15sp" />
-
-                <RelativeLayout
-                    android:id="@+id/lnFrom"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/deskFrom"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/tvOrigin"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="-"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/txtFromRek"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:gravity="right"
-                        android:text="BRI 0892389207111"
-                        android:textSize="16sp" />
-                </RelativeLayout>
-
-                <TextView
-                    android:id="@+id/deskTo"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/lnFrom"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="16dp"
-                    android:gravity="left"
-                    android:text="to"
-                    android:textSize="15sp" />
-
-                <RelativeLayout
-                    android:id="@+id/lnTo"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/deskTo"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:id="@+id/tvDestination"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="-"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/txtToRek"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:gravity="right"
-                        android:text="BRI 08923892348"
-                        android:textSize="16sp" />
-                </RelativeLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@color/grey"
-                    android:layout_margin="16dp"/>
-
-                <RelativeLayout
-                    android:id="@+id/lnTransferAmount"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/lnTo"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="Transfer amount"
-                        android:textSize="16sp" />
-
-                    <TextView
-                        android:id="@+id/tvAmount2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="right"
-                        android:text="0"
-                        android:textSize="16sp" />
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:id="@+id/lnAmountFee"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/lnTransferAmount"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="Admin fee"
-                        android:textSize="16sp" />
-
-                    <TextView
-                        android:id="@+id/txtFee"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:gravity="right"
-                        android:text="FREE"
-                        android:textSize="16sp" />
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:id="@+id/lnTotal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/lnAmountFee"
-                    android:layout_marginBottom="16dp"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="Total"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/tvAmount3"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:gravity="right"
-                        android:text="0"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-                </RelativeLayout>
 
             </LinearLayout>
-
-            <RelativeLayout
-                android:id="@+id/lnButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_above="@+id/appwidgetTypeTitle"
-                android:layout_marginTop="8dp"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/btnCancel"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="8dp"
-                    android:layout_marginBottom="16dp"
-                    android:background="@drawable/button_soft_blue"
-                    android:text="Cancel"
-                    android:textAllCaps="true"
-                    android:textColor="@color/blue" />
-
-                <Button
-                    android:id="@+id/btnConf"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginBottom="16dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/button_blue"
-                    android:text="Confirm"
-                    android:textAllCaps="true"
-                    android:textColor="@color/white" />
-
-            </RelativeLayout>
         </RelativeLayout>
-        <!--        <LinearLayout-->
-        <!--            android:layout_width="wrap_content"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:layout_gravity="center"-->
-        <!--            android:orientation="vertical">-->
-
-        <!--            <TextView-->
-        <!--                android:id="@+id/tvAmount"-->
-        <!--                android:layout_width="wrap_content"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:layout_gravity="center"-->
-        <!--                android:text="Amount" />-->
-
-        <!--            <TextView-->
-        <!--                android:id="@+id/tvMode"-->
-        <!--                android:layout_width="wrap_content"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:layout_gravity="center"-->
-        <!--                android:text="Mode" />-->
-
-        <!--            <TextView-->
-        <!--                android:id="@+id/tvCurrency"-->
-        <!--                android:layout_width="wrap_content"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:layout_gravity="center"-->
-        <!--                android:text="Currency" />-->
-
-        <!--            <TextView-->
-        <!--                android:id="@+id/tvOrigin"-->
-        <!--                android:layout_width="wrap_content"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:layout_gravity="center"-->
-        <!--                android:text="Origin" />-->
-
-        <!--            <TextView-->
-        <!--                android:id="@+id/tvDestination"-->
-        <!--                android:layout_width="wrap_content"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:layout_gravity="center"-->
-        <!--                android:text="Destination" />-->
-
-        <!--            <TextView-->
-        <!--                android:id="@+id/tvOriginProvider"-->
-        <!--                android:layout_width="wrap_content"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:layout_gravity="center"-->
-        <!--                android:text="Origin Provider" />-->
-
-        <!--            <TextView-->
-        <!--                android:id="@+id/tvDestinationProvider"-->
-        <!--                android:layout_width="wrap_content"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:layout_gravity="center"-->
-        <!--                android:text="DestinationProvider" />-->
-
-        <!--        </LinearLayout>-->
     </FrameLayout>
 </layout>

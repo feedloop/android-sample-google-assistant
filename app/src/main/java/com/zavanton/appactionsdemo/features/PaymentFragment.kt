@@ -57,6 +57,8 @@ class PaymentFragment : Fragment() {
     private val originProvider by lazy { arguments?.getString(ORIGIN_PROVIDER).orEmpty() }
     private val destinationProvider by lazy { arguments?.getString(DESTINATION_PROVIDER).orEmpty() }
 
+    private var destinationFinal: String = ""
+    private var destinationProviderFinal: String = ""
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -68,43 +70,61 @@ class PaymentFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val amountFinal = if (amount == "") {
-            "0"
-        } else amount
 
-        val originFinal: String
-        if (origin == "") {
-            originFinal = "-"
-            binding.txtFromRek.text = "-"
-        } else originFinal = origin
+        destinationFinal = if (destination == "") {
+            "Aditya Putra"
+        } else destination
 
-        val destinationFinal: String
-        if (destination == "") {
-            destinationFinal = "-"
-            binding.txtToRek.text = "-"
-        } else destinationFinal = destination
+        binding.appwidgetTypeTitle.text = getString(R.string.desk_payment, destinationFinal)
+        binding.tvName1.text = "$destinationFinal (BRI)"
+        binding.tvName2.text = "$destinationFinal (Mandiri)"
+        binding.tvName3.text = "$destinationFinal (BNI)"
 
-        binding.tvAmount.text = amountFinal
-        binding.tvAmount2.text = amountFinal
-        binding.tvAmount3.text = amountFinal
-//        binding.tvMode.text = getString(R.string.transfer_mode, mode)
-        binding.tvCurrency.text = currency
-        binding.tvOrigin.text = originFinal
-        binding.tvDestination.text = destinationFinal
-//        binding.tvOriginProvider.text = getString(R.string.transfer_origin_provider, originProvider)
-//        binding.tvDestinationProvider.text = getString(R.string.transfer_destination_provider, destinationProvider)
-
-        binding.btnConf.setOnClickListener {
-            activity?.let {
-                val intent = Intent(it, PinViewActivity::class.java)
-                it.startActivity(intent)
-            }
+        binding.click1.setOnClickListener {
+            destinationProviderFinal = binding.tvNoRek1.text.toString()
+            if (amount == "") {
+                intentInputPayment()
+            } else intentPayment()
         }
-        binding.btnCancel.setOnClickListener {
-            activity?.let {
-                val intent = Intent(it, MainActivity::class.java)
-                it.startActivity(intent)
-            }
+        binding.click2.setOnClickListener {
+            destinationProviderFinal = binding.tvNoRek2.text.toString()
+            if (amount == "") {
+                intentInputPayment()
+            } else intentPayment()
+        }
+        binding.click3.setOnClickListener {
+            destinationProviderFinal = binding.tvNoRek3.text.toString()
+            if (amount == "") {
+                intentInputPayment()
+            } else intentPayment()
+        }
+    }
+
+    private fun intentPayment() {
+        activity?.let {
+            val intent = Intent(it, ConfirmPaymentActivity::class.java)
+            intent.putExtra("amount", amount)
+            intent.putExtra("mode", mode)
+            intent.putExtra("currency", currency)
+            intent.putExtra("origin", origin)
+            intent.putExtra("destination", destinationFinal)
+            intent.putExtra("originProvider", originProvider)
+            intent.putExtra("destinationProvider", destinationProviderFinal)
+            it.startActivity(intent)
+        }
+    }
+
+    private fun intentInputPayment() {
+        activity?.let {
+            val intent = Intent(it, InputPaymentActivity::class.java)
+            intent.putExtra("amount", amount)
+            intent.putExtra("mode", mode)
+            intent.putExtra("currency", currency)
+            intent.putExtra("origin", origin)
+            intent.putExtra("destination", destinationFinal)
+            intent.putExtra("originProvider", originProvider)
+            intent.putExtra("destinationProvider", destinationProviderFinal)
+            it.startActivity(intent)
         }
     }
 }

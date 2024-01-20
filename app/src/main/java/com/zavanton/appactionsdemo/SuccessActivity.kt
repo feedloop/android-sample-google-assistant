@@ -18,6 +18,7 @@ class SuccessActivity : AppCompatActivity() {
         super.onResume()
 
         binding.btnBackHome.setOnClickListener {
+            finishAffinity()
             startActivity(Intent(this, MainActivity::class.java))
         }
     }
