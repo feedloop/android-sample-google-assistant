@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.zavanton.appactionsdemo">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name="com.zavanton.appactionsdemo.app.App"
         android:allowBackup="true"

@@ -1,2 +1,3 @@
 include ':app'
-rootProject.name = "AppActionsDemo"
+rootProject.name = "Android Google Assistant"
+include ':core'

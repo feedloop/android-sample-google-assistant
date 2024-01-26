@@ -6,13 +6,28 @@ import android.content.Intent
 import android.net.Uri
 import android.service.voice.VoiceInteractionService
 import androidx.slice.SliceManager
+import com.example.core.di.networkModule
+import com.example.core.di.preferencesModule
+import com.example.core.di.repositoryModule
+import com.example.core.di.useCaseModule
+import com.zavanton.appactionsdemo.di.viewModelModule
 import com.zavanton.appactionsdemo.slices.AccountInfoProvider
+import org.koin.android.ext.koin.androidContext
+import org.koin.core.context.GlobalContext
+import org.koin.core.context.loadKoinModules
 
 class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
-
+        GlobalContext.startKoin {
+            androidContext(this@App)
+            GlobalContext.loadKoinModules(networkModule)
+            GlobalContext.loadKoinModules(repositoryModule)
+            GlobalContext.loadKoinModules(preferencesModule)
+            GlobalContext.loadKoinModules(useCaseModule)
+            loadKoinModules(viewModelModule)
+        }
         // Grant the assistant permission when the application is create, it's okay to grant it each time.
         grantAssistantPermissions()
     }

@@ -49,7 +49,7 @@ class AccountInfoProvider : SliceProvider() {
         val intent = Intent(context, MainActivity::class.java)
         return SliceAction.create(
             PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_IMMUTABLE),
-            IconCompat.createWithResource(context, R.drawable.abc_ic_star_black_16dp),
+            IconCompat.createWithResource(context!!, R.drawable.notification_icon_background),
             ListBuilder.SMALL_IMAGE,
             "Open App"
         )
