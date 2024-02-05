@@ -76,16 +76,7 @@ class UserRepository(
             emit(Resource.Loading())
 
             val requestBody = mapGetBalanceToRequestBody(accountNo = accountNo)
-
             val bodyRequest = mapGetBalanceToRequestBodyString(accountNo = accountNo)
-
-//            val hmac = generateHMACSHA512(
-//                generateDataSignatureGetBalance(
-//                    token = token,
-//                    requestBody = requestBody.toString(),
-//                    timeStamp = timeStamp
-//                ), Const.CLIENT_SECRET
-//            )
             val hmac = generateRequest(Const.CLIENT_SECRET,"POST",timeStamp,token,bodyRequest,"/snap/v1.0/balance-inquiry")
 
             Log.e("dataToken",hmac)
