@@ -19,6 +19,7 @@ package com.zavanton.appactionsdemo.widgets
 
 import android.appwidget.AppWidgetManager
 import android.content.Context
+import android.content.res.Resources
 import android.text.format.DateFormat
 import android.util.Log
 import android.widget.RemoteViews
@@ -118,37 +119,27 @@ class BalanceWidget(
     private fun formatDataAndSetWidget(
     ) {
         // formats date of activity
-        val datePattern = DateFormat.getBestDateTimePattern(Locale.getDefault(), "MMMM d")
+        val currentSysLocale = Resources.getSystem().configuration.locales[0]
+        val datePattern = DateFormat.getBestDateTimePattern(currentSysLocale, "MMMM d")
         val formattedDate = DateFormat.format(datePattern, Calendar.getInstance())
 
-
         setDataToWidget(BALANCE)
-
+        Log.e("Bahasa", currentSysLocale.language)
         if (hasBii) {
             // formats speech and display text for Assistant
             // https://developers.google.com/assistant/app/widgets#tts
-            val speechText =
-                "Berikut informasi saldo anda pada tanggal $formattedDate. adalah sebesar $BALANCE Rupiah."
-            val displayText = "Berikut informasi saldo anda pada tanggal $formattedDate"
-            setTts(speechText, displayText)
-        }
-    }
+            var speechText: String
+            var displayText: String
+            if (currentSysLocale.language == "in") {
+                speechText =
+                    "Berikut informasi saldo anda pada tanggal $formattedDate adalah sebesar $BALANCE Rupiah."
+                displayText = "Berikut informasi saldo anda pada tanggal $formattedDate"
+            } else {
+                speechText =
+                    "The following is your balance information on $formattedDate is ${BALANCE.replace('.', ',')} Rupiah."
+                displayText = "Below is your balance information for today, $formattedDate"
+            }
 
-    /**
-     * Formats and sets no activity data to Widget
-     */
-    private fun setNoActivityDataWidget() {
-        val datePattern = DateFormat.getBestDateTimePattern(Locale.getDefault(), "MMMM d")
-        val formattedDate = DateFormat.format(datePattern, Calendar.getInstance())
-
-        setDataToWidget(BALANCE)
-
-        if (hasBii) {
-            // formats speech and display text for Assistant
-            // https://developers.google.com/assistant/app/widgets#library
-            val speechText =
-                "Berikut informasi saldo anda pada tanggal $formattedDate. adalah sebesar $BALANCE Rupiah."
-            val displayText = "Berikut informasi saldo anda pada tanggal $formattedDate"
             setTts(speechText, displayText)
         }
     }
