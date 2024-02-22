@@ -24,7 +24,6 @@ import android.text.format.DateFormat
 import android.util.Log
 import android.widget.RemoteViews
 import com.google.assistant.appactions.widgets.AppActionsWidgetExtension
-import com.zavanton.appactionsdemo.Params.BALANCE
 import com.zavanton.appactionsdemo.R
 import java.util.*
 
@@ -38,6 +37,7 @@ class BalanceWidget(
     private val appWidgetManager: AppWidgetManager,
     private val appWidgetId: Int,
     layout: Int,
+    private val saldo: String,
 ) {
     private val views = RemoteViews(context.packageName, layout)
     private val hasBii: Boolean
@@ -80,8 +80,8 @@ class BalanceWidget(
      */
     fun updateAppWidget() {
         if (hasBii && !isFallbackIntent) {
-            observeAndUpdateRequestedExercise()
-        } else observeAndUpdateLastExercise()
+            observeAndUpdateRequestedExercise(saldo)
+        } else observeAndUpdateLastExercise(saldo)
     }
 
 
@@ -116,7 +116,7 @@ class BalanceWidget(
     /**
      * Formats and sets activity data to Widget
      */
-    private fun formatDataAndSetWidget(
+    private fun formatDataAndSetWidget(BALANCE: String
     ) {
         // formats date of activity
         val currentSysLocale = Resources.getSystem().configuration.locales[0]
@@ -154,17 +154,13 @@ class BalanceWidget(
     /**
      * Create and observe the last exerciseType activity LiveData.
      */
-    private fun observeAndUpdateRequestedExercise() {
-        formatDataAndSetWidget()
+    private fun observeAndUpdateRequestedExercise(saldo: String) {
+        formatDataAndSetWidget(saldo)
         updateWidget()
     }
 
-
-    /**
-     * Create and observe the last activity LiveData.
-     */
-    private fun observeAndUpdateLastExercise() {
-        formatDataAndSetWidget()
+    private fun observeAndUpdateLastExercise(saldo: String) {
+        formatDataAndSetWidget(saldo)
         updateWidget()
     }
 
