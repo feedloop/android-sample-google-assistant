@@ -28,7 +28,7 @@
                 android:src="@mipmap/ic_launcher_round" />
 
             <TextView
-                android:id="@+id/titleApp"
+                android:id="@+id/tv_title_app"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
@@ -42,6 +42,7 @@
         </RelativeLayout>
 
         <TextView
+            android:id="@+id/tv_desc_balance"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/lnTop"
@@ -51,7 +52,7 @@
             app:autoSizeMinTextSize="10sp"
             app:autoSizeMaxTextSize="22sp"
             app:autoSizeStepGranularity="2sp"
-            android:text="Berikut informasi saldo untuk rekening BRI atas nama Rahayuning :"
+            android:text="Berikut informasi saldo anda"
             android:textSize="14sp" />
 
         <LinearLayout
@@ -67,6 +68,7 @@
                 android:layout_height="wrap_content">
 
                 <TextView
+                    android:id="@+id/tv_balance_check"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
@@ -87,21 +89,23 @@
                 android:padding="12dp"
                 android:orientation="vertical"
                 android:background="@drawable/round_grey">
+
                 <TextView
+                    android:id="@+id/tv_current_balance"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:contentDescription="Saldo anda"
                     android:gravity="center"
-                    app:autoSizeTextType="uniform"
-                    app:autoSizeMinTextSize="10sp"
+                    android:text="Saldo saat ini"
+                    android:textSize="14sp"
                     app:autoSizeMaxTextSize="22sp"
+                    app:autoSizeMinTextSize="10sp"
                     app:autoSizeStepGranularity="2sp"
-                    android:text="Current Balance"
-                    android:textSize="14sp" />
+                    app:autoSizeTextType="uniform" />
 
                 <TextView
-                    android:id="@+id/appwidgetDistance"
+                    android:id="@+id/tv_balance"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/appwidgetTypeTitle"
@@ -116,10 +120,11 @@
                     android:textStyle="bold" />
             </LinearLayout>
             <TextView
+                android:id="@+id/tv_selected_account"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:text="Selected accounte"
+                android:text="Akun yang dipilih"
                 app:autoSizeTextType="uniform"
                 app:autoSizeMinTextSize="10sp"
                 app:autoSizeMaxTextSize="22sp"
@@ -133,9 +138,10 @@
                 android:layout_height="wrap_content">
 
                 <TextView
+                    android:id="@+id/tv_account_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Rahayuning"
+                    android:text="-"
                     app:autoSizeTextType="uniform"
                     app:autoSizeMinTextSize="10sp"
                     app:autoSizeMaxTextSize="22sp"
@@ -145,10 +151,11 @@
                     android:textSize="14sp" />
 
                 <TextView
+                    android:id="@+id/tv_account_number"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:text="BRI 0892389207231"
+                    android:text="-"
                     app:autoSizeTextType="uniform"
                     app:autoSizeMinTextSize="10sp"
                     app:autoSizeMaxTextSize="22sp"

@@ -90,10 +90,54 @@ class BalanceWidget(
      */
     private fun setDataToWidget(
         saldo: String,
+        language: String
     ) {
-        views.setTextViewText(
-            R.id.appwidgetDistance, "Rp $saldo"
-        )
+        if (language == "in") {
+            views.setTextViewText(
+                R.id.tv_desc_balance, "Berikut informasi saldo untuk rekening BRI atas nama {nama}"
+            )
+            views.setTextViewText(
+                R.id.tv_balance_check, "Cek saldo"
+            )
+            views.setTextViewText(
+                R.id.tv_current_balance, "Saldo saat ini"
+            )
+            views.setTextViewText(
+                R.id.tv_balance, "Rp $saldo"
+            )
+            views.setTextViewText(
+                R.id.tv_selected_account, "Akun yang dipilih"
+            )
+            views.setTextViewText(
+                R.id.tv_account_name, "{nama akun}"
+            )
+            views.setTextViewText(
+                R.id.tv_account_number, "{nomor rekening}"
+            )
+        } else {
+            views.setTextViewText(
+                R.id.tv_desc_balance,
+                "The following is the balance information for the BRI account in {nama} name"
+            )
+            views.setTextViewText(
+                R.id.tv_balance_check, "Balance check"
+            )
+            views.setTextViewText(
+                R.id.tv_current_balance, "Current balance"
+            )
+            views.setTextViewText(
+                R.id.tv_balance, "Rp $saldo"
+            )
+            views.setTextViewText(
+                R.id.tv_selected_account, "Selected account"
+            )
+            views.setTextViewText(
+                R.id.tv_account_name, "{nama akun}"
+            )
+            views.setTextViewText(
+                R.id.tv_account_number, "{nomor rekening}"
+            )
+        }
     }
 
     /**
@@ -116,14 +160,15 @@ class BalanceWidget(
     /**
      * Formats and sets activity data to Widget
      */
-    private fun formatDataAndSetWidget(BALANCE: String
+    private fun formatDataAndSetWidget(
+        BALANCE: String
     ) {
         // formats date of activity
         val currentSysLocale = Resources.getSystem().configuration.locales[0]
         val datePattern = DateFormat.getBestDateTimePattern(currentSysLocale, "MMMM d")
         val formattedDate = DateFormat.format(datePattern, Calendar.getInstance())
 
-        setDataToWidget(BALANCE)
+        setDataToWidget(BALANCE, currentSysLocale.language)
         Log.e("Bahasa", currentSysLocale.language)
         if (hasBii) {
             // formats speech and display text for Assistant
@@ -136,7 +181,12 @@ class BalanceWidget(
                 displayText = "Berikut informasi saldo anda pada tanggal $formattedDate"
             } else {
                 speechText =
-                    "The following is your balance information on $formattedDate is ${BALANCE.replace('.', ',')} Rupiah."
+                    "The following is your balance information on $formattedDate is ${
+                        BALANCE.replace(
+                            '.',
+                            ','
+                        )
+                    } Rupiah."
                 displayText = "Below is your balance information for today, $formattedDate"
             }
 
